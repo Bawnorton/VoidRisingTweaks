@@ -1,0 +1,11 @@
+
+{
+  "required": true,
+  "package": "com.bawnorton.vrt.mixins",
+  "refmap": "mixins.vrt.refmap.json",
+  "minVersion": "0.7.3",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinBlockDirt"
+  ]
+}
