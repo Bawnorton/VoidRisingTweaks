@@ -1,13 +1,21 @@
 package com.bawnorton.vrt.proxy;
 
 import com.bawnorton.vrt.ChunkUpdates;
-import com.bawnorton.vrt.modify.VRTConfigBlocks;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
-public class ClientProxy {
+
+public class ClientProxy extends CommonProxy{
+
+    @Override
+    public void registerItemRenderer(Item item, int meta, String id) {
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
+    }
+
     public void postInit(FMLPostInitializationEvent preEvent) {
-        VRTConfigBlocks.initBlocks();
         MinecraftForge.EVENT_BUS.register(new ChunkUpdates());
     }
 }

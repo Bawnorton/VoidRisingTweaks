@@ -1,6 +1,6 @@
 package com.bawnorton.vrt;
 
-import com.bawnorton.vrt.proxy.ClientProxy;
+import com.bawnorton.vrt.proxy.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -13,8 +13,8 @@ import org.apache.logging.log4j.Logger;
 public class VoidRisingTweaks {
     private static Logger logger;
 
-    @SidedProxy(clientSide = Global.BR_CLIENT_PROXY, serverSide = Global.BR_CLIENT_PROXY)
-    public static ClientProxy proxy;
+    @SidedProxy(clientSide = Global.BR_CLIENT_PROXY, serverSide = Global.BR_SERVER_PROXY)
+    public static CommonProxy proxy;
     @Mod.Instance("vrt")
     public static VoidRisingTweaks instance;
     @EventHandler
@@ -32,3 +32,4 @@ public class VoidRisingTweaks {
         proxy.postInit(postEvent);
     }
 }
+

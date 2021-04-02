@@ -1,5 +1,5 @@
 package com.bawnorton.vrt.proxy;
 
-public class ServerProxy {
+public class ServerProxy extends CommonProxy {
 
 }
