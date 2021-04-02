@@ -100,8 +100,8 @@ public abstract class MixinTaintHelper {
                         }
                         if(bl instanceof BlockSandStone) {
                             BlockTaintSandstone bls = new BlockTaintSandstone();
-                            world.setBlockState(pos, bls.getDefaultState());
-                            world.addBlockEvent(pos, bls, 1, 0);
+                            world.setBlockState(t, bls.getDefaultState());
+                            world.addBlockEvent(t, bls, 1, 0);
                             System.out.println("Success");
                             return;
                         }
