@@ -1,0 +1,128 @@
+---- Minecraft Crash Report ----
+// Ooh. Shiny.
+
+Time: 4/1/21 5:19 PM
+Description: Initializing game
+
+java.lang.NoClassDefFoundError: thaumcraft/common/config/ConfigBlocks
+	at thaumcraft.Registrar.registerBlocks(Registrar.java:48)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_34_Registrar_registerBlocks_Register.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus$1.invoke(EventBus.java:144)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.registries.GameData.fireRegistryEvents(GameData.java:847)
+	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:630)
+	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:252)
+	at net.minecraft.client.Minecraft.init(Minecraft.java:514)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:422)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+Caused by: java.lang.ClassNotFoundException: thaumcraft.common.config.ConfigBlocks
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:191)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 23 more
+Caused by: java.lang.ArrayIndexOutOfBoundsException: 26
+	at org.objectweb.asm.Type.getType(Type.java:490)
+	at org.objectweb.asm.Type.getType(Type.java:217)
+	at org.objectweb.asm.commons.Remapper.mapDesc(Remapper.java:54)
+	at net.minecraftforge.fml.common.asm.transformers.deobf.FMLRemappingAdapter$StaticFixingMethodVisitor.visitFieldInsn(FMLRemappingAdapter.java:92)
+	at org.objectweb.asm.ClassReader.readCode(ClassReader.java:1494)
+	at org.objectweb.asm.ClassReader.readMethod(ClassReader.java:1032)
+	at org.objectweb.asm.ClassReader.accept(ClassReader.java:708)
+	at org.objectweb.asm.ClassReader.accept(ClassReader.java:521)
+	at net.minecraftforge.fml.common.asm.transformers.DeobfuscationTransformer.transform(DeobfuscationTransformer.java:76)
+	at net.minecraft.launchwrapper.LaunchClassLoader.runTransformers(LaunchClassLoader.java:279)
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:176)
+	... 25 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Client thread
+Stacktrace:
+	at thaumcraft.Registrar.registerBlocks(Registrar.java:48)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler_34_Registrar_registerBlocks_Register.invoke(.dynamic)
+	at net.minecraftforge.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:90)
+	at net.minecraftforge.fml.common.eventhandler.EventBus$1.invoke(EventBus.java:144)
+	at net.minecraftforge.fml.common.eventhandler.EventBus.post(EventBus.java:182)
+	at net.minecraftforge.registries.GameData.fireRegistryEvents(GameData.java:847)
+	at net.minecraftforge.fml.common.Loader.preinitializeMods(Loader.java:630)
+	at net.minecraftforge.fml.client.FMLClientHandler.beginMinecraftLoading(FMLClientHandler.java:252)
+	at net.minecraft.client.Minecraft.init(Minecraft.java:514)
+
+-- Initialization --
+Details:
+Stacktrace:
+	at net.minecraft.client.Minecraft.run(Minecraft.java:422)
+	at net.minecraft.client.main.Main.main(Main.java:118)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(GradleStartCommon.java:97)
+	at GradleStart.main(GradleStart.java:25)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Mac OS X (x86_64) version 10.16
+	Java Version: 1.8.0_282, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Amazon.com Inc.
+	Memory: 788467584 bytes (751 MB) / 1624244224 bytes (1549 MB) up to 7635730432 bytes (7282 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP 9.42 Powered by Forge 14.23.5.2847 9 mods loaded, 9 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State | ID               | Version      | Source                           | Signature |
+	|:----- |:---------------- |:------------ |:-------------------------------- |:--------- |
+	| LCH   | minecraft        | 1.12.2       | minecraft.jar                    | None      |
+	| LCH   | mcp              | 9.42         | minecraft.jar                    | None      |
+	| LCH   | FML              | 8.0.99.99    | forgeSrc-1.12.2-14.23.5.2847.jar | None      |
+	| LCH   | forge            | 14.23.5.2847 | forgeSrc-1.12.2-14.23.5.2847.jar | None      |
+	| LCH   | vrtcore          | 1.0.0        | minecraft.jar                    | None      |
+	| LCH   | voidrisingtweaks | 1.0.0        | main                             | None      |
+	| LCH   | nuclearcraft     | 2o.4.7       | NuclearCraft-2o.4.7-1.12.2.jar   | None      |
+	| LCH   | baubles          | 1.5.2        | Baubles-1.12-1.5.2.jar           | None      |
+	| LCH   | thaumcraft       | 6.1.BETA26   | Thaumcraft-1.12.2-6.1.BETA26.jar | None      |
+
+	Loaded coremods (and transformers): 
+VoidRisingTweaksLoadingPlugin (unknown)
+  com.bawnorton.vrt.core.VoidRisingTweaksClassTransformer
+	GL info: ' Vendor: 'ATI Technologies Inc.' Version: '2.1 ATI-4.2.15' Renderer: 'AMD Radeon Pro 580 OpenGL Engine'
+	Launched Version: 1.12.2
+	LWJGL: 2.9.2
+	OpenGL: AMD Radeon Pro 580 OpenGL Engine GL version 2.1 ATI-4.2.15, ATI Technologies Inc.
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because ARB_framebuffer_object is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 12x Intel(R) Core(TM) i9-8950HK CPU @ 2.90GHz

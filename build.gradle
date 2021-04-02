@@ -18,7 +18,7 @@ apply plugin: 'com.github.johnrengelman.shadow'
 
 
 version = '1.0'
-group = 'com.example.vrt' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = 'com.bawnorton.vrt' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'vrt'
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
@@ -29,7 +29,7 @@ compileJava {
 minecraft {
     version = '1.12.2-14.23.5.2847'
     runDir = 'run'
-    coreMod = 'com.example.vrt.ExampleModLoadingPlugin'
+    coreMod = 'com.bawnorton.vrt.VoidRisingTweaksLoadingPlugin'
     // the mappings can be changed at any time, and must be in the following format.
     // snapshot_YYYYMMDD   snapshot are built nightly.
     // stable_#            stables are built at the discretion of the MCP team.
@@ -41,7 +41,7 @@ minecraft {
 
 jar.manifest.attributes(
         'FMLCorePluginContainsFMLMod': true,
-        'FMLCorePlugin': 'com.example.vrt.ExampleModLoadingPlugin',
+        'FMLCorePlugin': 'com.bawnorton.vrt.core.VoidRisingTweaksLoadingPlugin',
         'ForceLoadAsMod': true,
         'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker'
 )
@@ -52,19 +52,20 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:20.1.0'
+
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
     //compile 'some.group:artifact:version:classifier'
     //compile 'some.group:artifact:version'
-      
+
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+
     // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-    compile files('libs/Baubles-1.12-1.5.2.jar')
-    compile files('libs/NuclearCraft-2o.4.7-1.12.2.jar')
-    compile files('libs/Thaumcraft-1.12.2-6.1.BETA26.jar')
+
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings
     //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
@@ -104,11 +105,11 @@ processResources {
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else except the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'

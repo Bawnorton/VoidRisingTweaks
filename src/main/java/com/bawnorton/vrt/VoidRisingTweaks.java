@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Global.MOD_ID, name = Global.MOD_NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES)
+@Mod(modid = Global.MOD_ID, name = Global.MOD_NAME, version = Global.VERSION)
 public class VoidRisingTweaks
 {
 
@@ -19,14 +19,13 @@ public class VoidRisingTweaks
     private static CommonProxy proxy;
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
         logger = event.getModLog();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        logger.info("Biome Radiation Loaded");
+        logger.info("Void Rising Tweaks Loaded");
     }
 
     @EventHandler

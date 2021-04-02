@@ -2,6 +2,9 @@ package com.bawnorton.vrt;
 
 import nc.capability.radiation.source.IRadiationSource;
 import nc.radiation.RadiationHelper;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSandStone;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -10,7 +13,6 @@ import net.minecraft.world.gen.ChunkProviderServer;
 import net.minecraftforge.event.world.ChunkWatchEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import org.spongepowered.asm.mixin.Mixin;
 import thaumcraft.api.aura.AuraHelper;
 
 
@@ -51,15 +53,15 @@ public class ChunkUpdates {
 
     @SubscribeEvent
     public void genFlux(ChunkWatchEvent.Watch event) {
-        try {
-            Chunk chunk = event.getChunkInstance();
-            World world = chunk.getWorld();
-            BlockPos pos = chunk.getPos().getBlock(8, 128, 8);
-            if(AuraHelper.getFlux(world, pos) <= 500.0F) {
-                AuraHelper.polluteAura(world, pos, 600.0F, false);
+        World world = event.getPlayer().getServerWorld();
+        ChunkProviderServer serverChunks = (ChunkProviderServer) world.getChunkProvider();
+        Collection<Chunk> loadedChunks = serverChunks.getLoadedChunks();
+        for(Chunk chunk : loadedChunks) {
+            BlockPos pos = chunk.getPos().getBlock(8,128,8);
+            float chunkFlux = AuraHelper.getFlux(world, pos);
+            if(chunkFlux <= 600.0F) {
+                AuraHelper.polluteAura(world, pos, 600.0F - chunkFlux, false);
             }
-        } catch(NullPointerException e) {
-            System.out.println("Overloaded");
         }
     }
 
