@@ -5,7 +5,11 @@
 
 package com.bawnorton.vrt.modify;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.BlockFaceShape;
@@ -27,12 +31,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.blocks.BlocksTC;
 import thaumcraft.api.potions.PotionFluxTaint;
-import thaumcraft.common.blocks.BlockTC;
 import thaumcraft.common.blocks.world.taint.ITaintBlock;
 import thaumcraft.common.blocks.world.taint.TaintHelper;
+import thaumcraft.common.config.ConfigItems;
 import thaumcraft.common.lib.SoundsTC;
 
-public class BlockTaintSandstone extends BlockTC implements ITaintBlock {
+public class BlockTaintSandstone extends VRTBlockTC implements ITaintBlock {
+
+    static Random r = new Random(System.currentTimeMillis());
+
+    public static Block block;
 
     public BlockTaintSandstone() {
         super(ThaumcraftMaterials.MATERIAL_TAINT, "taint_sandstone");
@@ -87,6 +95,21 @@ public class BlockTaintSandstone extends BlockTC implements ITaintBlock {
             ((EntityLivingBase)entity).addPotionEffect(new PotionEffect(PotionFluxTaint.instance, 200, 0, false, true));
         }
     }
+
+    @Override
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        if (state.getBlock() == this && state.getBlock().equals(new BlockTaintSandstone())) {
+            int rr = r.nextInt(15) + fortune;
+            if (rr > 13) {
+                List<ItemStack> ret = new ArrayList();
+                ret.add(ConfigItems.FLUX_CRYSTAL.copy());
+                return ret;
+            }
+        }
+
+        return super.getDrops(world, pos, state, fortune);
+    }
+
 
     public int damageDropped(IBlockState state) {
         return 0;
