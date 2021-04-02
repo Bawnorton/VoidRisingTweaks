@@ -72,6 +72,16 @@ nbproject
 atlassian-ide-plugin.xml
 build.xml
 nb-configuration.xml
+asm4-guide.pdf
+usercache.json
+usernamecache.json
+gradlew.bat
+saves
+resourcepacks
+mods
+crash-reports
+.mixin.out
+options.txt
 *.iml
 *.ipr
 *.iws

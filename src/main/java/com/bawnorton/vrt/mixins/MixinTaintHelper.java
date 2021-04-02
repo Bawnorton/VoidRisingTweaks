@@ -37,7 +37,6 @@ public abstract class MixinTaintHelper {
      */
     @Overwrite
     public static void spreadFibres(World world, BlockPos pos, boolean ignore) {
-        System.out.println("Overwrite Called");
         if (ignore || !ModConfig.CONFIG_MISC.wussMode) {
             float mod = 0.001F + AuraHandler.getFluxSaturation(world, pos) * 2.0F;
             if (ignore || world.rand.nextFloat() <= ModConfig.CONFIG_WORLD.taintSpreadRate / 100.0F * mod) {
@@ -102,7 +101,6 @@ public abstract class MixinTaintHelper {
                             BlockTaintSandstone bls = new BlockTaintSandstone();
                             world.setBlockState(t, bls.getDefaultState());
                             world.addBlockEvent(t, bls, 1, 0);
-                            System.out.println("Success");
                             return;
                         }
                         if (bm == Material.ROCK) {
