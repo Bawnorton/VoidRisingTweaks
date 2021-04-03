@@ -1,9 +1,6 @@
 package com.bawnorton.vrt.mixins;
 
-import com.bawnorton.vrt.modify.BlockTaintSandstone;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
-import net.minecraft.block.BlockSandStone;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -26,6 +23,8 @@ import thaumcraft.common.lib.utils.BlockUtils;
 import thaumcraft.common.lib.utils.Utils;
 import thaumcraft.common.world.aura.AuraHandler;
 
+import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.TAINT_SAND;
+import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.TAINT_SANDSTONE;
 import static thaumcraft.common.blocks.world.taint.TaintHelper.isAtTaintSeedEdge;
 import static thaumcraft.common.blocks.world.taint.TaintHelper.isNearTaintSeed;
 
@@ -91,15 +90,20 @@ public abstract class MixinTaintHelper {
                             return;
                         }
 
-                        if (bm == Material.SAND || bm == Material.GROUND || bm == Material.GRASS || bm == Material.CLAY) {
+                        if (bm == Material.GROUND || bm == Material.GRASS || bm == Material.CLAY) {
                             world.setBlockState(t, BlocksTC.taintSoil.getDefaultState());
                             world.addBlockEvent(t, BlocksTC.taintSoil, 1, 0);
                             AuraHelper.drainFlux(world, t, 0.01F, false);
                             return;
                         }
-                        if(bl instanceof BlockSandStone) {
-                            world.setBlockState(t, BlockTaintSandstone.block.getDefaultState());
-                            world.addBlockEvent(t, BlockTaintSandstone.block, 1, 0);
+                        if(bl instanceof BlockSandStone || bl instanceof BlockRedSandstone) {
+                            world.setBlockState(t, TAINT_SANDSTONE.getDefaultState());
+                            world.addBlockEvent(t, TAINT_SANDSTONE, 1, 0);
+                            return;
+                        }
+                        if(bm == Material.SAND) {
+                            world.setBlockState(t, TAINT_SAND.getDefaultState());
+                            world.addBlockEvent(t, TAINT_SAND, 1, 0);
                             return;
                         }
                         if (bm == Material.ROCK) {

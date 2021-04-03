@@ -21,6 +21,10 @@ version = '1.0'
 group = 'com.bawnorton.vrt' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'vrt'
 
+eclipse {
+    project.natures 'org.eclipse.buildship.core.gradleprojectnature'
+}
+
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
     sourceCompatibility = targetCompatibility = '1.8'
@@ -65,7 +69,7 @@ dependencies {
 
     // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings
     //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
@@ -85,6 +89,7 @@ mixin {
 shadowJar {
     exclude 'dummyThing'
     exclude 'LICENSE.txt'
+    exclude 'META-INF/fml_cache_annotation.json'
 
     classifier = ''
 }
@@ -97,12 +102,6 @@ reobf {
     }
 }
 
-
-sourceSets {
-    main {
-        output.resourcesDir = output.classesDir
-        }
-}
 
 processResources {
     // this will ensure that this task is redone when the versions change.

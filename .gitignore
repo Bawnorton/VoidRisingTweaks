@@ -1,89 +1,40 @@
-# Build #
-#########
-MANIFEST.MF
-dependency-reduced-pom.xml
-
-# Compiled #
-############
+# eclipse
 bin
-build
-classes
-dist
-lib
-libs
-out
-run
-target
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-
-# Databases #
-#############
-*.db
-*.sql
-*.sqlite
-
-# Packages #
-############
-*.7z
-*.dmg
-*.gz
-*.iso
-*.rar
-*.tar
-*.zip
-
-# Repository #
-##############
-.git
-
-# Logging #
-###########
-/logs
-*.log
-
-# Misc #
-########
-*.bak
-
-# System #
-##########
-.DS_Store
-ehthumbs.db
-Thumbs.db
-*.sh
-
-# Project #
-###########
-.checkstyle
-.classpath
-.externalToolBuilders
-.gradle
-.nb-gradle
-.idea
-.project
+*.launch
 .settings
-eclipse
-nbproject
-atlassian-ide-plugin.xml
-build.xml
-nb-configuration.xml
-asm4-guide.pdf
-usercache.json
-usernamecache.json
-gradlew.bat
-saves
-resourcepacks
-mods
-crash-reports
-.mixin.out
-options.txt
-*.iml
+.metadata
+.classpath
+.project
+VoidRisingTweaks_Client.launch
+VoidRisingTweaks_Server.launch
+
+# idea
+out
 *.ipr
 *.iws
-*.launch
-*.number
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+LICENSE-Paulscode IBXM Library.txt
+LICENSE-Paulscode SoundSystem CodecIBXM.txt
+README.txt
+options.txt
+usernamecache.json
+usercache.json
+CREDITS.txt
+changelog.txt
+libs
+logs
+mods
+nuclearcraft
+resourcepacks
+crash-reports
+.mixin.out
+saves

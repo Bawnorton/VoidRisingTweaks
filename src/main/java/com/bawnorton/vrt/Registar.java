@@ -1,6 +1,8 @@
 package com.bawnorton.vrt;
 
-import com.bawnorton.vrt.modify.*;
+import com.bawnorton.vrt.addons.*;
+import com.bawnorton.vrt.addons.blocks.VRTBlockInit;
+import com.bawnorton.vrt.addons.items.VRTItemInit;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
