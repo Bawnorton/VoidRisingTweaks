@@ -92,36 +92,8 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
                 this.die(world, pos, state);
                 return;
             }
-            if (state.getBlock() == TAINT_SANDSTONE) {
+            else {
                 TaintHelper.spreadFibres(world, pos);
-            }
-
-            if (state.getBlock() == TAINT_SAND) {
-                new Random(pos.toLong());
-                if (this.tryToFall(world, pos, pos)) {
-                    return;
-                }
-
-                if (world.isAirBlock(pos.up())) {
-                    boolean doIt = true;
-                    EnumFacing dir = EnumFacing.HORIZONTALS[random.nextInt(4)];
-
-                    for(int a = 1; a < 4; ++a) {
-                        if (!world.isAirBlock(pos.offset(dir).down(a))) {
-                            doIt = false;
-                            break;
-                        }
-
-                        if (world.getBlockState(pos.down(a)).getBlock() != this) {
-                            doIt = false;
-                            break;
-                        }
-                    }
-
-                    if (doIt && this.tryToFall(world, pos, pos.offset(dir))) {
-                        return;
-                    }
-                }
             }
         }
     }

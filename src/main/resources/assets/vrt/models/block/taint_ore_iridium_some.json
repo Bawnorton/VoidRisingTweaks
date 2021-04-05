@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "all": "vrt:blocks/taint_ore_iridium_some"
+    }
+}

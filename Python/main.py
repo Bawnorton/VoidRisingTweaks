@@ -24,8 +24,12 @@ instance = {
     '_few': "SLIGHTLY_TAINTED_"
 }
 
+objects = []
+
 
 def add_block(pre):
+    global objects
+    objects = []
     for suffix in {"_full", "_most", "_some", "_few"}:
         name = pre + suffix
         blockstate = ({"variants": {"normal": {"model": "vrt:taint_{}".format(name)}}})
@@ -34,9 +38,13 @@ def add_block(pre):
         save_file("blockstates/taint_{}".format(name), blockstate)
         save_file("models/block/taint_{}".format(name), block_model)
         save_file("models/item/taint_{}".format(name), item_model)
-        separated = name.split("_", -1)
+        separated = name.split("_")
         state = types[separated[len(separated) - 1]]
-        block = name.split("_", 1)[0].capitalize()
+        block = ""
+        for entry in separated[0:len(separated) - 1]:
+            block += entry + "_"
+        block = block[0:len(block) - 1]
+        objects.append(str(instance[suffix] + block.upper()))
         with open('/Users/benjamin/Documents/Developer/Minecraft/Modding/VoidRisingTweaks/src/main/resources/assets/vrt'
                   '/lang/en_us.lang', 'r') as file:
             data = file.readlines()
@@ -70,6 +78,13 @@ def add_block(pre):
         os.rename(jpgfile, tgtfile)
         shutil.copy(tgtfile, dst_dir)
         os.remove(tgtfile)
+    for line in fileinput.FileInput(
+            '/Users/benjamin/Documents/Developer/Minecraft/Modding/VoidRisingTweaks/src/main/java/com/bawnorton/vrt'
+            '/addons/blocks/VRTBlockInit.java', inplace=1):
+        if "//table" in line:
+            line = line.replace(line, line + "        put(\"tainted_" + pre + "\", new Block[]{" + objects[1] + ", " + objects[3] +
+                                ", " + objects[2] + ", " + objects[0] + "});\n")
+        print(line, end='')
 
 add_block("ore_sapphire")
 add_block("ore_ruby")
