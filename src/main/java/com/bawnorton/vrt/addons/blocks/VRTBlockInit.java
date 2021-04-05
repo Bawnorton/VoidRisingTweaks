@@ -23,7 +23,6 @@ public class  VRTBlockInit {
     // BLOCKS
     //
 //index
-    public static final Block TAINTED_ANDESITE = new VRTTaintBlock("tainted_andesite_full");
     public static final Block TAINT_ANDESITE = new VRTTaintBlock("taint_andesite");
     public static final Block TAINT_CLAY = new VRTTaintBlock("taint_clay");
     public static final Block TAINT_COBBLESTONE = new VRTTaintBlock("taint_cobblestone");

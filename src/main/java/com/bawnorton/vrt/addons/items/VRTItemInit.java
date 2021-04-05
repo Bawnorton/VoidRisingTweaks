@@ -18,13 +18,6 @@ public class VRTItemInit {
     // BLOCKS
     //
 //index
-    public static final Item TAINTED_CLAY = new ItemBlock(VRTBlockInit.TAINTED_CLAY);
-    public static final Item MOSTLY_TAINTED_CLAY = new ItemBlock(VRTBlockInit.MOSTLY_TAINTED_CLAY);
-    public static final Item PARTIALLY_TAINTED_CLAY = new ItemBlock(VRTBlockInit.PARTIALLY_TAINTED_CLAY);
-    public static final Item SLIGHTLY_TAINTED_CLAY = new ItemBlock(VRTBlockInit.SLIGHTLY_TAINTED_CLAY);
-    public static final Item MOSTLY_TAINTED_ANDESITE = new ItemBlock(VRTBlockInit.MOSTLY_TAINTED_ANDESITE);
-    public static final Item SLIGHTLY_TAINTED_ANDESITE = new ItemBlock(VRTBlockInit.SLIGHTLY_TAINTED_ANDESITE);
-    public static final Item PARTIALLY_TAINTED_ANDESITE = new ItemBlock(VRTBlockInit.PARTIALLY_TAINTED_ANDESITE);
     public static final Item TAINTED_ANDESITE = new ItemBlock(VRTBlockInit.TAINTED_ANDESITE);
     public static final Item TAINT_ANDESITE = new ItemBlock(VRTBlockInit.TAINT_ANDESITE);
     public static final Item TAINT_CLAY = new ItemBlock(VRTBlockInit.TAINT_CLAY);
