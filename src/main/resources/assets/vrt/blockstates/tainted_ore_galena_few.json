@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "normal": {
+            "model": "vrt:tainted_ore_galena_few"
+        }
+    }
+}

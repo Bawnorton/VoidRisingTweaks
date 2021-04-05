@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "vrt:blocks/tainted_cobblestone_few",
+        "south": "vrt:blocks/tainted_cobblestone_few",
+        "east": "vrt:blocks/tainted_cobblestone_few",
+        "west": "vrt:blocks/tainted_cobblestone_few",
+        "up": "vrt:blocks/tainted_cobblestone_few",
+        "down": "vrt:blocks/tainted_cobblestone_few"
+    }
+}

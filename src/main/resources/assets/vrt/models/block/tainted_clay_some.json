@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "vrt:blocks/tainted_clay_some",
+        "south": "vrt:blocks/tainted_clay_some",
+        "east": "vrt:blocks/tainted_clay_some",
+        "west": "vrt:blocks/tainted_clay_some",
+        "up": "vrt:blocks/tainted_clay_some",
+        "down": "vrt:blocks/tainted_clay_some"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "vrt:blocks/tainted_ore_lithium_few",
+        "south": "vrt:blocks/tainted_ore_lithium_few",
+        "east": "vrt:blocks/tainted_ore_lithium_few",
+        "west": "vrt:blocks/tainted_ore_lithium_few",
+        "up": "vrt:blocks/tainted_ore_lithium_few",
+        "down": "vrt:blocks/tainted_ore_lithium_few"
+    }
+}

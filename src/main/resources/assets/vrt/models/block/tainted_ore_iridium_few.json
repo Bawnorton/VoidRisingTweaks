@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "vrt:blocks/tainted_ore_iridium_few",
+        "south": "vrt:blocks/tainted_ore_iridium_few",
+        "east": "vrt:blocks/tainted_ore_iridium_few",
+        "west": "vrt:blocks/tainted_ore_iridium_few",
+        "up": "vrt:blocks/tainted_ore_iridium_few",
+        "down": "vrt:blocks/tainted_ore_iridium_few"
+    }
+}

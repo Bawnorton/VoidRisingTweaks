@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "vrt:blocks/tainted_gravel_most",
+        "south": "vrt:blocks/tainted_gravel_most",
+        "east": "vrt:blocks/tainted_gravel_most",
+        "west": "vrt:blocks/tainted_gravel_most",
+        "up": "vrt:blocks/tainted_gravel_most",
+        "down": "vrt:blocks/tainted_gravel_most"
+    }
+}

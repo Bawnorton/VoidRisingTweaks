@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "vrt:blocks/tainted_diorite_few",
+        "south": "vrt:blocks/tainted_diorite_few",
+        "east": "vrt:blocks/tainted_diorite_few",
+        "west": "vrt:blocks/tainted_diorite_few",
+        "up": "vrt:blocks/tainted_diorite_few",
+        "down": "vrt:blocks/tainted_diorite_few"
+    }
+}

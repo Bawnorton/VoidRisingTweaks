@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "north": "vrt:blocks/tainted_ore_emerald_full",
+        "south": "vrt:blocks/tainted_ore_emerald_full",
+        "east": "vrt:blocks/tainted_ore_emerald_full",
+        "west": "vrt:blocks/tainted_ore_emerald_full",
+        "up": "vrt:blocks/tainted_ore_emerald_full",
+        "down": "vrt:blocks/tainted_ore_emerald_full"
+    }
+}
