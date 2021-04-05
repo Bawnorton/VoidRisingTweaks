@@ -5,16 +5,12 @@
 
 package com.bawnorton.vrt.addons.blocks;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import com.bawnorton.vrt.VoidRisingTweaks;
 
 import com.bawnorton.vrt.addons.VRTHasModel;
-import com.bawnorton.vrt.addons.items.VRTItemInit;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
@@ -27,7 +23,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
@@ -44,10 +39,12 @@ import thaumcraft.api.potions.PotionFluxTaint;
 import thaumcraft.common.blocks.world.taint.BlockTaintFibre;
 import thaumcraft.common.blocks.world.taint.ITaintBlock;
 import thaumcraft.common.blocks.world.taint.TaintHelper;
-import thaumcraft.common.config.ConfigItems;
 import thaumcraft.common.entities.EntityFallingTaint;
 import thaumcraft.common.lib.SoundsTC;
 import thaumcraft.common.lib.utils.Utils;
+
+import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.*;
+import static com.bawnorton.vrt.addons.items.VRTItemInit.ITEMS;
 
 public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasModel {
 
@@ -59,8 +56,8 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
         this.setResistance(100.0F);
         this.setSoundType(SoundsTC.GORE);
         this.setTickRandomly(true);
-        VRTBlockInit.BLOCKS.add(this);
-        VRTItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        BLOCKS.add(this);
+        ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
     @Override
     public void registerModels() {
@@ -85,7 +82,8 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
     }
 
     public void die(World world, BlockPos pos, IBlockState blockState) {
-        world.setBlockState(pos, BlocksTC.taintCrust.getDefaultState());
+        IBlockState defaultState = defaultBlocks.getOrDefault(blockState.getBlock(), new Block(Material.AIR).getDefaultState());
+        world.setBlockState(pos, defaultState);
     }
 
     public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
@@ -94,11 +92,11 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
                 this.die(world, pos, state);
                 return;
             }
-            if (state.getBlock() == VRTBlockInit.TAINT_SANDSTONE) {
+            if (state.getBlock() == TAINT_SANDSTONE) {
                 TaintHelper.spreadFibres(world, pos);
             }
 
-            if (state.getBlock() == VRTBlockInit.TAINT_SAND) {
+            if (state.getBlock() == TAINT_SAND) {
                 new Random(pos.toLong());
                 if (this.tryToFall(world, pos, pos)) {
                     return;
@@ -204,20 +202,6 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
 
             return false;
         }
-    }
-
-    @Override
-    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        if (state.getBlock() == this && state.getBlock().equals(this)) {
-            int rr = r.nextInt(15) + fortune;
-            if (rr > 13) {
-                List<ItemStack> ret = new ArrayList<>();
-                ret.add(ConfigItems.FLUX_CRYSTAL.copy());
-                return ret;
-            }
-        }
-
-        return super.getDrops(world, pos, state, fortune);
     }
 
 

@@ -68,11 +68,10 @@ public class ChunkUpdates {
     public void changeBiome(Chunk chunk, double rads, BlockPos targetBlock) {
         int inChunkX = targetBlock.getX() & 15;
         int inChunkZ = targetBlock.getZ() & 15;
-        if(rads <= 0.5) {
+        if(rads >= 0.5) {
             chunk.getBiomeArray()[inChunkZ << 4 | inChunkX] = 21;
         }
     }
-
 
 
     private static BlockPos newRandomOffsetPos(World world) {

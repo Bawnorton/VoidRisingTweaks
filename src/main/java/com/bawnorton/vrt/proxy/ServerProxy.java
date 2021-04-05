@@ -1,5 +1,10 @@
 package com.bawnorton.vrt.proxy;
 
-public class ServerProxy extends CommonProxy {
+import com.bawnorton.vrt.addons.blocks.VRTBlockInit;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
+public class ServerProxy extends CommonProxy {
+    @Override
+    public void preInit(FMLPreInitializationEvent event) {
+    }
 }

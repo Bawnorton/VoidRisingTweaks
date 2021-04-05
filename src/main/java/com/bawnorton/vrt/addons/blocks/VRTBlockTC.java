@@ -1,5 +1,6 @@
 package com.bawnorton.vrt.addons.blocks;
 
+import com.bawnorton.vrt.VoidRisingTweaks;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -10,14 +11,13 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import thaumcraft.common.config.ConfigItems;
 
 public class VRTBlockTC extends Block {
     public VRTBlockTC(Material material, String name) {
         super(material);
         this.setTranslationKey(name);
         this.setRegistryName("vrt", name);
-        this.setCreativeTab(ConfigItems.TABTC);
+        this.setCreativeTab(VoidRisingTweaks.TABVRT);
         this.setResistance(2.0F);
         this.setHardness(1.5F);
     }

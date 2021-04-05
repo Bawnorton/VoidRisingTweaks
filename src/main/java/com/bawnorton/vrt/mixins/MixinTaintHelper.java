@@ -1,5 +1,6 @@
 package com.bawnorton.vrt.mixins;
 
+import com.bawnorton.vrt.addons.blocks.VRTTaintBlock;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -23,8 +24,12 @@ import thaumcraft.common.lib.utils.BlockUtils;
 import thaumcraft.common.lib.utils.Utils;
 import thaumcraft.common.world.aura.AuraHandler;
 
-import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.TAINT_SAND;
-import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.TAINT_SANDSTONE;
+import java.util.Collection;
+import java.util.Hashtable;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.*;
 import static thaumcraft.common.blocks.world.taint.TaintHelper.isAtTaintSeedEdge;
 import static thaumcraft.common.blocks.world.taint.TaintHelper.isNearTaintSeed;
 
@@ -34,7 +39,7 @@ public abstract class MixinTaintHelper {
     /**
      * @author Bawnorton
      */
-    @Overwrite
+    @Overwrite(remap = false)
     public static void spreadFibres(World world, BlockPos pos, boolean ignore) {
         if (ignore || !ModConfig.CONFIG_MISC.wussMode) {
             float mod = 0.001F + AuraHandler.getFluxSaturation(world, pos) * 2.0F;
@@ -78,40 +83,27 @@ public abstract class MixinTaintHelper {
                     }
 
                     if (BlockTaintFibre.isHemmedByTaint(world, t) && bs.getBlockHardness(world, t) < 5.0F) {
-                        if (Utils.isWoodLog(world, t) && bs.getMaterial() != ThaumcraftMaterials.MATERIAL_TAINT) {
-                            world.setBlockState(t, BlocksTC.taintLog.getDefaultState().withProperty(BlockTaintLog.AXIS, BlockUtils.getBlockAxis(world, t)));
-                            return;
+                        Hashtable<IBlockState, Block> taintBlocks = new Hashtable<>();
+                        for(Map.Entry<Block, IBlockState> entry: defaultBlocks.entrySet()) {
+                            taintBlocks.put(entry.getValue(), entry.getKey());
                         }
-
-                        if (bs.getBlock() == Blocks.RED_MUSHROOM_BLOCK || bs.getBlock() == Blocks.BROWN_MUSHROOM_BLOCK || bm == Material.GOURD || bm == Material.CACTUS || bm == Material.CORAL || bm == Material.SPONGE || bm == Material.WOOD) {
+                        Block taintBlock = taintBlocks.get(bs);
+                        if(taintBlock != null) {
+                            world.setBlockState(t, taintBlock.getDefaultState());
+                            world.addBlockEvent(t, taintBlock, 1, 0);
+                        }
+                        else if (Utils.isWoodLog(world, t) && bs.getMaterial() != ThaumcraftMaterials.MATERIAL_TAINT) {
+                            world.setBlockState(t, BlocksTC.taintLog.getDefaultState().withProperty(BlockTaintLog.AXIS, BlockUtils.getBlockAxis(world, t)));
+                        }
+                        else if (bs.getBlock() == Blocks.RED_MUSHROOM_BLOCK || bs.getBlock() == Blocks.BROWN_MUSHROOM_BLOCK || bm == Material.GOURD || bm == Material.CACTUS || bm == Material.CORAL || bm == Material.SPONGE || bm == Material.WOOD) {
                             world.setBlockState(t, BlocksTC.taintCrust.getDefaultState());
                             world.addBlockEvent(t, BlocksTC.taintCrust, 1, 0);
-                            AuraHelper.drainFlux(world, t, 0.01F, false);
-                            return;
                         }
-
-                        if (bm == Material.GROUND || bm == Material.GRASS || bm == Material.CLAY) {
+                        else if (bm == Material.GROUND || bm == Material.GRASS) {
                             world.setBlockState(t, BlocksTC.taintSoil.getDefaultState());
                             world.addBlockEvent(t, BlocksTC.taintSoil, 1, 0);
-                            AuraHelper.drainFlux(world, t, 0.01F, false);
-                            return;
                         }
-                        if(bl instanceof BlockSandStone || bl instanceof BlockRedSandstone) {
-                            world.setBlockState(t, TAINT_SANDSTONE.getDefaultState());
-                            world.addBlockEvent(t, TAINT_SANDSTONE, 1, 0);
-                            return;
-                        }
-                        if(bm == Material.SAND) {
-                            world.setBlockState(t, TAINT_SAND.getDefaultState());
-                            world.addBlockEvent(t, TAINT_SAND, 1, 0);
-                            return;
-                        }
-                        if (bm == Material.ROCK) {
-                            world.setBlockState(t, BlocksTC.taintRock.getDefaultState());
-                            world.addBlockEvent(t, BlocksTC.taintRock, 1, 0);
-                            AuraHelper.drainFlux(world, t, 0.01F, false);
-                            return;
-                        }
+                        AuraHelper.drainFlux(world, t, 0.01F, false);
                     }
 
                     if ((bs.getBlock() == BlocksTC.taintSoil || bs.getBlock() == BlocksTC.taintRock) && world.isAirBlock(t.up()) && AuraHelper.getFlux(world, t) >= 5.0F && (double)world.rand.nextFloat() < (double)(ModConfig.CONFIG_WORLD.taintSpreadRate / 100.0F) * 0.33D && isAtTaintSeedEdge(world, t)) {
