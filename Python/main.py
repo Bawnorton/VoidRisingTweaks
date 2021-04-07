@@ -39,7 +39,8 @@ def add_block(pre):
             "east": "vrt:blocks/tainted_{}".format(name),
             "west": "vrt:blocks/tainted_{}".format(name),
             "up": "vrt:blocks/tainted_{}".format(name),
-            "down": "vrt:blocks/tainted_{}".format(name)
+            "down": "vrt:blocks/tainted_{}".format(name),
+            "particle": "vrt:blocks/tainted_{}".format(name)
         }})
         item_model = ({"parent": "vrt:block/tainted_{}".format(name)})
         save_file("blockstates/tainted_{}".format(name), blockstate)

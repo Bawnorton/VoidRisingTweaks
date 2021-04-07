@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_gravel_most",
         "west": "vrt:blocks/tainted_gravel_most",
         "up": "vrt:blocks/tainted_gravel_most",
-        "down": "vrt:blocks/tainted_gravel_most"
+        "down": "vrt:blocks/tainted_gravel_most",
+        "particle": "vrt:blocks/tainted_gravel_most"
     }
 }

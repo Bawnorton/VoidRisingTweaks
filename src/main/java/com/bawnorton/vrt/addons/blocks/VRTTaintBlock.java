@@ -5,11 +5,14 @@
 
 package com.bawnorton.vrt.addons.blocks;
 
-import java.util.Random;
+import java.util.*;
 
 import com.bawnorton.vrt.VoidRisingTweaks;
 
 import com.bawnorton.vrt.addons.VRTHasModel;
+import com.bawnorton.vrt.handler.ChunkHandler;
+import com.bawnorton.vrt.handler.TaintBlock;
+import nc.radiation.RadiationHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -26,6 +29,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -46,7 +50,7 @@ import thaumcraft.common.lib.utils.Utils;
 import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.*;
 import static com.bawnorton.vrt.addons.items.VRTItemInit.ITEMS;
 
-public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasModel {
+public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasModel, ITickable {
 
     static Random r = new Random(System.currentTimeMillis());
 
@@ -82,20 +86,44 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
     }
 
     public void die(World world, BlockPos pos, IBlockState blockState) {
-        IBlockState defaultState = defaultBlocks.getOrDefault(blockState.getBlock(), new Block(Material.AIR).getDefaultState());
-        world.setBlockState(pos, defaultState);
+        if(BLOCKS.contains(this)) {
+            String registryName = this.getRegistryName().getPath();
+            String blockName = registryName.substring(0, registryName.lastIndexOf("_"));
+            int nextStage = 0;
+            for(Block taintedBlock: TAINTED_BLOCKS.get(blockName)) {
+                if(taintedBlock==this) break;
+                nextStage++;
+            }
+            if(nextStage == 0) {
+                IBlockState defaultState = defaultBlocks.getOrDefault(this, new Block(Material.AIR).getDefaultState());
+                world.setBlockState(pos, defaultState);
+            }
+            else {
+                IBlockState state = TAINTED_BLOCKS.get(blockName).get(nextStage - 1).getDefaultState();
+                world.setBlockState(pos, state);
+            }
+        }
     }
 
     public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
         if (!world.isRemote) {
-            if (!TaintHelper.isNearTaintSeed(world, pos) && random.nextInt(10) == 0) {
+            if(ChunkHandler.radiatedChunks.contains(world.getChunk(pos))) {
                 this.die(world, pos, state);
-                return;
             }
             else {
                 TaintHelper.spreadFibres(world, pos);
             }
         }
+    }
+
+    @Override
+    public void update() {
+        for(int i = 0; i < ChunkHandler.blocks.size() * 30; i++) {
+            TaintBlock block = ChunkHandler.blocks.get(r.nextInt(ChunkHandler.blocks.size()));
+            VRTTaintBlock taintBlock = (VRTTaintBlock) block.block;
+            taintBlock.die(block.chunk.getWorld(), block.pos, block.block.getDefaultState());
+        }
+
     }
 
     public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {

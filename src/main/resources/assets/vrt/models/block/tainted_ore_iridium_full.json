@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_iridium_full",
         "west": "vrt:blocks/tainted_ore_iridium_full",
         "up": "vrt:blocks/tainted_ore_iridium_full",
-        "down": "vrt:blocks/tainted_ore_iridium_full"
+        "down": "vrt:blocks/tainted_ore_iridium_full",
+        "particle": "vrt:blocks/tainted_ore_iridium_full"
     }
 }

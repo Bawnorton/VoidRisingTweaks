@@ -1,8 +1,8 @@
 package com.bawnorton.vrt.proxy;
 
-import com.bawnorton.vrt.ChunkUpdates;
-import com.bawnorton.vrt.addons.blocks.VRTBlockInit;
+import com.bawnorton.vrt.events.ChunkEvents;
 import com.bawnorton.vrt.addons.recipies.VRTSmeltingRecipies;
+import com.bawnorton.vrt.events.PlayerEvents;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -20,6 +20,6 @@ public class CommonProxy {
     }
 
     public void postInit(FMLPostInitializationEvent preEvent) {
-        MinecraftForge.EVENT_BUS.register(new ChunkUpdates());
+        MinecraftForge.EVENT_BUS.register(new ChunkEvents());
     }
 }

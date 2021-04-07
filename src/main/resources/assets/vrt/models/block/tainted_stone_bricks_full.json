@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_stone_bricks_full",
         "west": "vrt:blocks/tainted_stone_bricks_full",
         "up": "vrt:blocks/tainted_stone_bricks_full",
-        "down": "vrt:blocks/tainted_stone_bricks_full"
+        "down": "vrt:blocks/tainted_stone_bricks_full",
+        "particle": "vrt:blocks/tainted_stone_bricks_full"
     }
 }

@@ -1,10 +1,11 @@
-package com.bawnorton.vrt;
+package com.bawnorton.vrt.events;
 
+import com.bawnorton.vrt.addons.blocks.VRTTaintBlock;
+import com.bawnorton.vrt.handler.ChunkHandler;
+import com.bawnorton.vrt.handler.TaintBlock;
 import nc.capability.radiation.source.IRadiationSource;
 import nc.radiation.RadiationHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSandStone;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -16,12 +17,12 @@ import net.minecraftforge.fml.common.gameevent.TickEvent;
 import thaumcraft.api.aura.AuraHelper;
 
 
-import java.util.Collection;
-import java.util.Random;
+import java.util.*;
 
+import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.*;
 import static nc.config.NCConfig.radiation_world_chunks_per_tick;
 
-public class ChunkUpdates {
+public class ChunkEvents {
 
     private static final Random RAND = new Random();
 
@@ -47,6 +48,10 @@ public class ChunkUpdates {
                 }
                 double currentRad = chunkSource.getRadiationLevel();
                 changeBiome(chunk, currentRad, randomOffsetPos);
+                if(currentRad > 0.001) {
+                    ChunkHandler.radiatedChunks.add(chunk);
+                }
+                else ChunkHandler.radiatedChunks.remove(chunk);
             }
         }
     }
@@ -54,25 +59,22 @@ public class ChunkUpdates {
     @SubscribeEvent
     public void genFlux(ChunkWatchEvent.Watch event) {
         World world = event.getPlayer().getServerWorld();
-        ChunkProviderServer serverChunks = (ChunkProviderServer) world.getChunkProvider();
-        Collection<Chunk> loadedChunks = serverChunks.getLoadedChunks();
-        for(Chunk chunk : loadedChunks) {
-            BlockPos pos = chunk.getPos().getBlock(8,128,8);
-            float chunkFlux = AuraHelper.getFlux(world, pos);
-            if(chunkFlux <= 600.0F) {
-                AuraHelper.polluteAura(world, pos, 600.0F - chunkFlux, false);
-            }
+        Chunk chunk = event.getChunkInstance();
+        if(chunk == null) return;
+        BlockPos pos = chunk.getPos().getBlock(8,128,8);
+        float chunkFlux = AuraHelper.getFlux(world, pos);
+        if(chunkFlux <= 600.0F) {
+            AuraHelper.polluteAura(world, pos, 600.0F - chunkFlux, false);
         }
     }
 
-    public void changeBiome(Chunk chunk, double rads, BlockPos targetBlock) {
+    private void changeBiome(Chunk chunk, double rads, BlockPos targetBlock) {
         int inChunkX = targetBlock.getX() & 15;
         int inChunkZ = targetBlock.getZ() & 15;
         if(rads >= 0.5) {
             chunk.getBiomeArray()[inChunkZ << 4 | inChunkX] = 21;
         }
     }
-
 
     private static BlockPos newRandomOffsetPos(World world) {
         return new BlockPos(RAND.nextInt(16), RAND.nextInt(world.getHeight()), RAND.nextInt(16));

@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_gold_most",
         "west": "vrt:blocks/tainted_ore_gold_most",
         "up": "vrt:blocks/tainted_ore_gold_most",
-        "down": "vrt:blocks/tainted_ore_gold_most"
+        "down": "vrt:blocks/tainted_ore_gold_most",
+        "particle": "vrt:blocks/tainted_ore_gold_most"
     }
 }

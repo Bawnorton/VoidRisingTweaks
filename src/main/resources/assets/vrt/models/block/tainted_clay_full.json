@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_clay_full",
         "west": "vrt:blocks/tainted_clay_full",
         "up": "vrt:blocks/tainted_clay_full",
-        "down": "vrt:blocks/tainted_clay_full"
+        "down": "vrt:blocks/tainted_clay_full",
+        "particle": "vrt:blocks/tainted_clay_full"
     }
 }

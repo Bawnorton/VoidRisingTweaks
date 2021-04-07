@@ -21,7 +21,6 @@ public class VoidRisingTweaks {
     private static Logger logger;
     public static final VRTCreativeTab TABVRT = new VRTCreativeTab("vrtTab");
 
-
     @SidedProxy(clientSide = Global.BR_CLIENT_PROXY, serverSide = Global.BR_SERVER_PROXY)
     public static CommonProxy proxy;
     @Mod.Instance("vrt")

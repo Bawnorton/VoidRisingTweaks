@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_bauxite_few",
         "west": "vrt:blocks/tainted_ore_bauxite_few",
         "up": "vrt:blocks/tainted_ore_bauxite_few",
-        "down": "vrt:blocks/tainted_ore_bauxite_few"
+        "down": "vrt:blocks/tainted_ore_bauxite_few",
+        "particle": "vrt:blocks/tainted_ore_bauxite_few"
     }
 }

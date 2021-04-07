@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_uranium_some",
         "west": "vrt:blocks/tainted_ore_uranium_some",
         "up": "vrt:blocks/tainted_ore_uranium_some",
-        "down": "vrt:blocks/tainted_ore_uranium_some"
+        "down": "vrt:blocks/tainted_ore_uranium_some",
+        "particle": "vrt:blocks/tainted_ore_uranium_some"
     }
 }

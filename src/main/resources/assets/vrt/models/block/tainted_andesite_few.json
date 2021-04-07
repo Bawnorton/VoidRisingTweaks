@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_andesite_few",
         "west": "vrt:blocks/tainted_andesite_few",
         "up": "vrt:blocks/tainted_andesite_few",
-        "down": "vrt:blocks/tainted_andesite_few"
+        "down": "vrt:blocks/tainted_andesite_few",
+        "particle": "vrt:blocks/tainted_andesite_few"
     }
 }

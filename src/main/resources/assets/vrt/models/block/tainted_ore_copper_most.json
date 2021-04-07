@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_copper_most",
         "west": "vrt:blocks/tainted_ore_copper_most",
         "up": "vrt:blocks/tainted_ore_copper_most",
-        "down": "vrt:blocks/tainted_ore_copper_most"
+        "down": "vrt:blocks/tainted_ore_copper_most",
+        "particle": "vrt:blocks/tainted_ore_copper_most"
     }
 }

@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_gold_some",
         "west": "vrt:blocks/tainted_ore_gold_some",
         "up": "vrt:blocks/tainted_ore_gold_some",
-        "down": "vrt:blocks/tainted_ore_gold_some"
+        "down": "vrt:blocks/tainted_ore_gold_some",
+        "particle": "vrt:blocks/tainted_ore_gold_some"
     }
 }

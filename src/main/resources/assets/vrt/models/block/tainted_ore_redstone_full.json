@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_redstone_full",
         "west": "vrt:blocks/tainted_ore_redstone_full",
         "up": "vrt:blocks/tainted_ore_redstone_full",
-        "down": "vrt:blocks/tainted_ore_redstone_full"
+        "down": "vrt:blocks/tainted_ore_redstone_full",
+        "particle": "vrt:blocks/tainted_ore_redstone_full"
     }
 }

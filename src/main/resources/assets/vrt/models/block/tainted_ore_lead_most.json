@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_lead_most",
         "west": "vrt:blocks/tainted_ore_lead_most",
         "up": "vrt:blocks/tainted_ore_lead_most",
-        "down": "vrt:blocks/tainted_ore_lead_most"
+        "down": "vrt:blocks/tainted_ore_lead_most",
+        "particle": "vrt:blocks/tainted_ore_lead_most"
     }
 }

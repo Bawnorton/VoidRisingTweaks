@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_sandstone_few",
         "west": "vrt:blocks/tainted_sandstone_few",
         "up": "vrt:blocks/tainted_sandstone_few",
-        "down": "vrt:blocks/tainted_sandstone_few"
+        "down": "vrt:blocks/tainted_sandstone_few",
+        "particle": "vrt:blocks/tainted_sandstone_few"
     }
 }

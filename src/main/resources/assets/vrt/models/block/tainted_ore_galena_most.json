@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_galena_most",
         "west": "vrt:blocks/tainted_ore_galena_most",
         "up": "vrt:blocks/tainted_ore_galena_most",
-        "down": "vrt:blocks/tainted_ore_galena_most"
+        "down": "vrt:blocks/tainted_ore_galena_most",
+        "particle": "vrt:blocks/tainted_ore_galena_most"
     }
 }

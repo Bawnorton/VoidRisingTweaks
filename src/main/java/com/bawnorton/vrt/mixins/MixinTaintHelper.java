@@ -1,6 +1,6 @@
 package com.bawnorton.vrt.mixins;
 
-import com.bawnorton.vrt.addons.blocks.VRTTaintBlock;
+import nc.radiation.RadiationHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -24,14 +24,11 @@ import thaumcraft.common.lib.utils.BlockUtils;
 import thaumcraft.common.lib.utils.Utils;
 import thaumcraft.common.world.aura.AuraHandler;
 
-import java.util.Collection;
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.*;
 import static thaumcraft.common.blocks.world.taint.TaintHelper.isAtTaintSeedEdge;
-import static thaumcraft.common.blocks.world.taint.TaintHelper.isNearTaintSeed;
 
 @Mixin(TaintHelper.class)
 public abstract class MixinTaintHelper {
@@ -44,7 +41,7 @@ public abstract class MixinTaintHelper {
         if (ignore || !ModConfig.CONFIG_MISC.wussMode) {
             float mod = 0.001F + AuraHandler.getFluxSaturation(world, pos) * 2.0F;
             if (ignore || world.rand.nextFloat() <= ModConfig.CONFIG_WORLD.taintSpreadRate / 100.0F * mod) {
-                if (isNearTaintSeed(world, pos)) {
+                if (RadiationHelper.getRadiationSource(world.getChunk(pos)).getRadiationLevel() < 0.001) {
                     int xx = pos.getX() + world.rand.nextInt(3) - 1;
                     int yy = pos.getY() + world.rand.nextInt(3) - 1;
                     int zz = pos.getZ() + world.rand.nextInt(3) - 1;
@@ -55,7 +52,6 @@ public abstract class MixinTaintHelper {
 
                     IBlockState bs = world.getBlockState(t);
                     Material bm = bs.getMaterial();
-                    Block bl = bs.getBlock();
                     float bh = bs.getBlockHardness(world, t);
                     if (bh < 0.0F || bh > 10.0F) {
                         return;

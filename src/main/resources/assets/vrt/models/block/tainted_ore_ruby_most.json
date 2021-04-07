@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_ore_ruby_most",
         "west": "vrt:blocks/tainted_ore_ruby_most",
         "up": "vrt:blocks/tainted_ore_ruby_most",
-        "down": "vrt:blocks/tainted_ore_ruby_most"
+        "down": "vrt:blocks/tainted_ore_ruby_most",
+        "particle": "vrt:blocks/tainted_ore_ruby_most"
     }
 }

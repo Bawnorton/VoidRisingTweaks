@@ -6,6 +6,7 @@
         "east": "vrt:blocks/tainted_diorite_few",
         "west": "vrt:blocks/tainted_diorite_few",
         "up": "vrt:blocks/tainted_diorite_few",
-        "down": "vrt:blocks/tainted_diorite_few"
+        "down": "vrt:blocks/tainted_diorite_few",
+        "particle": "vrt:blocks/tainted_diorite_few"
     }
 }
