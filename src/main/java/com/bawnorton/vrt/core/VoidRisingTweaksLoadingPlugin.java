@@ -9,10 +9,8 @@ import org.spongepowered.asm.mixin.Mixins;
 import java.util.Map;
 
 @IFMLLoadingPlugin.MCVersion(ForgeVersion.mcVersion)
-public class VoidRisingTweaksLoadingPlugin implements IFMLLoadingPlugin
-{
-    public VoidRisingTweaksLoadingPlugin()
-    {
+public class VoidRisingTweaksLoadingPlugin implements IFMLLoadingPlugin {
+    public VoidRisingTweaksLoadingPlugin() {
         MixinBootstrap.init();
         Mixins.addConfiguration("mixins.vrt.json");
     }
@@ -23,8 +21,7 @@ public class VoidRisingTweaksLoadingPlugin implements IFMLLoadingPlugin
      * @return a list of classes that implements the IClassTransformer interface
      */
     @Override
-    public String[] getASMTransformerClass()
-    {
+    public String[] getASMTransformerClass() {
         return new String[0];
     }
 
@@ -39,8 +36,7 @@ public class VoidRisingTweaksLoadingPlugin implements IFMLLoadingPlugin
      * normal loading events
      */
     @Override
-    public String getModContainerClass()
-    {
+    public String getModContainerClass() {
         return null;
     }
 
@@ -54,8 +50,7 @@ public class VoidRisingTweaksLoadingPlugin implements IFMLLoadingPlugin
      */
     @Nullable
     @Override
-    public String getSetupClass()
-    {
+    public String getSetupClass() {
         return null;
     }
 
@@ -69,8 +64,7 @@ public class VoidRisingTweaksLoadingPlugin implements IFMLLoadingPlugin
      * @param data
      */
     @Override
-    public void injectData(Map<String, Object> data)
-    {
+    public void injectData(Map<String, Object> data) {
 
     }
 
@@ -81,8 +75,7 @@ public class VoidRisingTweaksLoadingPlugin implements IFMLLoadingPlugin
      * @return the name of an access transformer class or null if none is provided
      */
     @Override
-    public String getAccessTransformerClass()
-    {
+    public String getAccessTransformerClass() {
         return null;
     }
 }

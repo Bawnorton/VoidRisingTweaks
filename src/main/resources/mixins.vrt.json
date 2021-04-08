@@ -8,6 +8,8 @@
     "MixinAuraHandler",
     "MixinAuraHelper",
     "MixinBlockTaint",
-    "MixinTaintHelper"
+    "MixinTaintFibre",
+    "MixinTaintHelper",
+    "MixinTaintLog"
   ]
 }

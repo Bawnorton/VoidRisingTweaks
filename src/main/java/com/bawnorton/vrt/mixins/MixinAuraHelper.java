@@ -16,7 +16,7 @@ public abstract class MixinAuraHelper {
      */
     @Overwrite(remap = false)
     public static float drainFlux(World world, BlockPos pos, float amount, boolean simulate) {
-        addVis(world, pos, amount/100);
+        addVis(world, pos, amount / 100);
         return amount;
     }
 }

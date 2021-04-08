@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 
 public class VRTItemBase extends Item implements VRTHasModel {
     public VRTItemBase(String name) {
-    	setTranslationKey(name);
+        setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(VoidRisingTweaks.TABVRT);
 

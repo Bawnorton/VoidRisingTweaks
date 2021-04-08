@@ -1,7 +1,7 @@
 package com.bawnorton.vrt.proxy;
 
-import com.bawnorton.vrt.events.ChunkEvents;
 import com.bawnorton.vrt.addons.recipies.VRTSmeltingRecipies;
+import com.bawnorton.vrt.events.ChunkEvents;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;

@@ -1,6 +1,7 @@
 package com.bawnorton.vrt.addons.blocks;
 
 import appeng.api.AEApi;
+import cofh.thermalfoundation.block.BlockOre;
 import cofh.thermalfoundation.init.TFBlocks;
 import nc.enumm.MetaEnums;
 import nc.init.NCBlocks;
@@ -8,9 +9,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.init.Blocks;
 import net.minecraft.block.state.IBlockState;
-import cofh.thermalfoundation.block.BlockOre;
+import net.minecraft.init.Blocks;
 import techreborn.init.ModBlocks;
 
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
 
-public class  VRTBlockInit {
-    public static final List<Block> BLOCKS = new ArrayList<Block>();
+public class VRTBlockInit {
+    public static final List<Block> BLOCKS = new ArrayList<>();
     //
     // BLOCKS
     //
@@ -39,6 +39,14 @@ public class  VRTBlockInit {
     public static final Block MOSTLY_TAINTED_DIORITE = new VRTTaintBlock("tainted_diorite_most");
     public static final Block SLIGHTLY_TAINTED_DIORITE = new VRTTaintBlock("tainted_diorite_few");
     public static final Block TAINTED_DIORITE = new VRTTaintBlock("tainted_diorite_full");
+    public static final Block PARTIALLY_TAINTED_DIRT = new VRTTaintBlock("tainted_dirt_some");
+    public static final Block MOSTLY_TAINTED_DIRT = new VRTTaintBlock("tainted_dirt_most");
+    public static final Block SLIGHTLY_TAINTED_DIRT = new VRTTaintBlock("tainted_dirt_few");
+    public static final Block TAINTED_DIRT = new VRTTaintBlock("tainted_dirt_full");
+    public static final Block PARTIALLY_TAINTED_STONE = new VRTTaintBlock("tainted_stone_some");
+    public static final Block MOSTLY_TAINTED_STONE = new VRTTaintBlock("tainted_stone_most");
+    public static final Block SLIGHTLY_TAINTED_STONE = new VRTTaintBlock("tainted_stone_few");
+    public static final Block TAINTED_STONE = new VRTTaintBlock("tainted_stone_full");
     public static final Block PARTIALLY_TAINTED_GRANITE = new VRTTaintBlock("tainted_granite_some");
     public static final Block MOSTLY_TAINTED_GRANITE = new VRTTaintBlock("tainted_granite_most");
     public static final Block SLIGHTLY_TAINTED_GRANITE = new VRTTaintBlock("tainted_granite_few");
@@ -161,6 +169,8 @@ public class  VRTBlockInit {
         put("tainted_clay", Arrays.asList(SLIGHTLY_TAINTED_CLAY, PARTIALLY_TAINTED_CLAY, MOSTLY_TAINTED_CLAY, TAINTED_CLAY));
         put("tainted_cobblestone", Arrays.asList(SLIGHTLY_TAINTED_COBBLESTONE, PARTIALLY_TAINTED_COBBLESTONE, MOSTLY_TAINTED_COBBLESTONE, TAINTED_COBBLESTONE));
         put("tainted_diorite", Arrays.asList(SLIGHTLY_TAINTED_DIORITE, PARTIALLY_TAINTED_DIORITE, MOSTLY_TAINTED_DIORITE, TAINTED_DIORITE));
+        put("tainted_dirt", Arrays.asList(SLIGHTLY_TAINTED_DIRT, PARTIALLY_TAINTED_DIRT, MOSTLY_TAINTED_DIRT, TAINTED_DIRT));
+        put("tainted_stone", Arrays.asList(SLIGHTLY_TAINTED_STONE, PARTIALLY_TAINTED_STONE, MOSTLY_TAINTED_STONE, TAINTED_STONE));
         put("tainted_granite", Arrays.asList(SLIGHTLY_TAINTED_GRANITE, PARTIALLY_TAINTED_GRANITE, MOSTLY_TAINTED_GRANITE, TAINTED_GRANITE));
         put("tainted_gravel", Arrays.asList(SLIGHTLY_TAINTED_GRAVEL, PARTIALLY_TAINTED_GRAVEL, MOSTLY_TAINTED_GRAVEL, TAINTED_GRAVEL));
         put("tainted_sand", Arrays.asList(SLIGHTLY_TAINTED_SAND, PARTIALLY_TAINTED_SAND, MOSTLY_TAINTED_SAND, TAINTED_SAND));
@@ -192,14 +202,16 @@ public class  VRTBlockInit {
         put("tainted_ore_sapphire", Arrays.asList(SLIGHTLY_TAINTED_ORE_SAPPHIRE, PARTIALLY_TAINTED_ORE_SAPPHIRE, MOSTLY_TAINTED_ORE_SAPPHIRE, TAINTED_ORE_SAPPHIRE));
     }};
 
-    public static final Hashtable<Block, IBlockState> defaultBlocks = new Hashtable<Block, IBlockState>(){{
+    public static final Hashtable<Block, IBlockState> defaultBlocks = new Hashtable<Block, IBlockState>() {{
         put(SLIGHTLY_TAINTED_ANDESITE, Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.ANDESITE));
         put(SLIGHTLY_TAINTED_COBBLESTONE, Blocks.COBBLESTONE.getDefaultState());
         put(SLIGHTLY_TAINTED_DIORITE, Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.DIORITE));
+        put(SLIGHTLY_TAINTED_DIRT, Blocks.DIRT.getDefaultState());
         put(SLIGHTLY_TAINTED_GRANITE, Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.GRANITE));
         put(SLIGHTLY_TAINTED_GRAVEL, Blocks.GRAVEL.getDefaultState());
         put(SLIGHTLY_TAINTED_SAND, Blocks.SAND.getDefaultState());
         put(SLIGHTLY_TAINTED_SANDSTONE, Blocks.SANDSTONE.getDefaultState());
+        put(SLIGHTLY_TAINTED_STONE, Blocks.STONE.getDefaultState());
         put(SLIGHTLY_TAINTED_STONE_BRICKS, Blocks.STONEBRICK.getDefaultState().withProperty(BlockStoneBrick.VARIANT, BlockStoneBrick.EnumType.CRACKED));
         put(SLIGHTLY_TAINTED_ORE_BAUXITE, TROre(4));
         put(SLIGHTLY_TAINTED_ORE_BORON, NCOre(5));
@@ -228,7 +240,7 @@ public class  VRTBlockInit {
     }};
 
     private static IBlockState TFOre(int meta) {
-        return TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, (BlockOre.Type)BlockOre.VARIANT.getAllowedValues().toArray()[meta]);
+        return TFBlocks.blockOre.getDefaultState().withProperty(BlockOre.VARIANT, (BlockOre.Type) BlockOre.VARIANT.getAllowedValues().toArray()[meta]);
     }
 
     private static IBlockState TROre(int meta) {
@@ -236,6 +248,6 @@ public class  VRTBlockInit {
     }
 
     private static IBlockState NCOre(int meta) {
-        return NCBlocks.ore.getDefaultState().withProperty((IProperty)NCBlocks.ore.getDefaultState().getPropertyKeys().stream().iterator().next(), (MetaEnums.OreType) NCBlocks.ore.getDefaultState().getPropertyKeys().stream().iterator().next().getAllowedValues().toArray()[meta]);
+        return NCBlocks.ore.getDefaultState().withProperty((IProperty) NCBlocks.ore.getDefaultState().getPropertyKeys().stream().iterator().next(), (MetaEnums.OreType) NCBlocks.ore.getDefaultState().getPropertyKeys().stream().iterator().next().getAllowedValues().toArray()[meta]);
     }
 }

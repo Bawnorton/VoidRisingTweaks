@@ -1,7 +1,5 @@
 package com.bawnorton.vrt;
 
-import java.lang.String;
-
 public class Global {
 
     public static final String MOD_ID = "vrt";

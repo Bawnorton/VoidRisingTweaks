@@ -17,7 +17,6 @@ public class VRTItemInit {
     //
     // BLOCKS
     //
-//index
     public static final Item PARTIALLY_TAINTED_ANDESITE = new ItemBlock(VRTBlockInit.PARTIALLY_TAINTED_ANDESITE);
     public static final Item MOSTLY_TAINTED_ANDESITE = new ItemBlock(VRTBlockInit.MOSTLY_TAINTED_ANDESITE);
     public static final Item SLIGHTLY_TAINTED_ANDESITE = new ItemBlock(VRTBlockInit.SLIGHTLY_TAINTED_ANDESITE);
@@ -150,8 +149,6 @@ public class VRTItemInit {
     public static final Item MOSTLY_TAINTED_ORE_SAPPHIRE = new ItemBlock(VRTBlockInit.MOSTLY_TAINTED_ORE_SAPPHIRE);
     public static final Item SLIGHTLY_TAINTED_ORE_SAPPHIRE = new ItemBlock(VRTBlockInit.SLIGHTLY_TAINTED_ORE_SAPPHIRE);
     public static final Item TAINTED_ORE_SAPPHIRE = new ItemBlock(VRTBlockInit.TAINTED_ORE_SAPPHIRE);
-
-
     //
     // Items
     //

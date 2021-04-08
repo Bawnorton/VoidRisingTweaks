@@ -1,6 +1,6 @@
 package com.bawnorton.vrt;
 
-import com.bawnorton.vrt.addons.*;
+import com.bawnorton.vrt.addons.VRTHasModel;
 import com.bawnorton.vrt.addons.blocks.VRTBlockInit;
 import com.bawnorton.vrt.addons.items.VRTItemInit;
 import net.minecraft.block.Block;
@@ -25,14 +25,14 @@ public class Registar {
 
     @SubscribeEvent
     public static void registerModel(ModelRegistryEvent event) {
-        for(Item item: VRTItemInit.ITEMS) {
-            if(item instanceof VRTHasModel) {
-                ((VRTHasModel)item).registerModels();
+        for (Item item : VRTItemInit.ITEMS) {
+            if (item instanceof VRTHasModel) {
+                ((VRTHasModel) item).registerModels();
             }
         }
-        for(Block block: VRTBlockInit.BLOCKS) {
-            if(block instanceof VRTHasModel) {
-                ((VRTHasModel)block).registerModels();
+        for (Block block : VRTBlockInit.BLOCKS) {
+            if (block instanceof VRTHasModel) {
+                ((VRTHasModel) block).registerModels();
             }
         }
     }

@@ -14,4 +14,13 @@ public class TaintBlock {
         this.block = block;
         this.chunk = chunk;
     }
+
+    @Override
+    public String toString() {
+        return "TaintBlock{" +
+                "pos=" + pos +
+                ", block=" + block +
+                ", chunk=" + chunk +
+                '}';
+    }
 }

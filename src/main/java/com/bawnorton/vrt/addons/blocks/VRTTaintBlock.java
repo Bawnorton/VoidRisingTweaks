@@ -10,8 +10,6 @@ import java.util.*;
 import com.bawnorton.vrt.VoidRisingTweaks;
 
 import com.bawnorton.vrt.addons.VRTHasModel;
-import com.bawnorton.vrt.handler.ChunkHandler;
-import com.bawnorton.vrt.handler.TaintBlock;
 import nc.radiation.RadiationHelper;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
@@ -29,7 +27,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -50,7 +47,7 @@ import thaumcraft.common.lib.utils.Utils;
 import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.*;
 import static com.bawnorton.vrt.addons.items.VRTItemInit.ITEMS;
 
-public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasModel, ITickable {
+public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasModel {
 
     static Random r = new Random(System.currentTimeMillis());
 
@@ -97,6 +94,9 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
             if(nextStage == 0) {
                 IBlockState defaultState = defaultBlocks.getOrDefault(this, new Block(Material.AIR).getDefaultState());
                 world.setBlockState(pos, defaultState);
+                int inChunkX = pos.getX() & 15;
+                int inChunkZ = pos.getZ() & 15;
+                world.getChunk(pos).getBiomeArray()[inChunkZ << 4 | inChunkX] = 21;
             }
             else {
                 IBlockState state = TAINTED_BLOCKS.get(blockName).get(nextStage - 1).getDefaultState();
@@ -107,23 +107,13 @@ public class VRTTaintBlock extends VRTBlockTC implements ITaintBlock, VRTHasMode
 
     public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
         if (!world.isRemote) {
-            if(ChunkHandler.radiatedChunks.contains(world.getChunk(pos))) {
+            if(RadiationHelper.getRadiationSource(world.getChunk(pos)).getRadiationLevel() > 0.001) {
                 this.die(world, pos, state);
             }
             else {
                 TaintHelper.spreadFibres(world, pos);
             }
         }
-    }
-
-    @Override
-    public void update() {
-        for(int i = 0; i < ChunkHandler.blocks.size() * 30; i++) {
-            TaintBlock block = ChunkHandler.blocks.get(r.nextInt(ChunkHandler.blocks.size()));
-            VRTTaintBlock taintBlock = (VRTTaintBlock) block.block;
-            taintBlock.die(block.chunk.getWorld(), block.pos, block.block.getDefaultState());
-        }
-
     }
 
     public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
