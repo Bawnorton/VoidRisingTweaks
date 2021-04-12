@@ -1,24 +1,107 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-        "transform": "forge:default-block",
-        "model": "cube_all"
-    },
-    "variants": {
-        "normal": [
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full0"}, "weight": 16 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full0"}, "weight": 16, "x": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full0"}, ",weight": 16, "y": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full0"}, "weight": 16, "x": 90, "y": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full1"} },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full1"}, "x": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full1"}, "y": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full1"}, "x": 90, "y": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full2"} },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full2"}, "x": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full2"}, "y": 90 },
-            { "model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full2"}, "x": 90, "y": 90 }
-        ],
-        "inventory": [{"model": "cube_all", "textures": {"all": "vrt:blocks/tainted_dirt_full0"}}]
-    }
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "cube_all"
+  },
+  "variants": {
+    "normal": [
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full0"
+        },
+        "weight": 16
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full0"
+        },
+        "weight": 16,
+        "x": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full0"
+        },
+        ",weight": 16,
+        "y": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full0"
+        },
+        "weight": 16,
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full1"
+        }
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full1"
+        },
+        "x": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full1"
+        },
+        "y": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full1"
+        },
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full2"
+        }
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full2"
+        },
+        "x": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full2"
+        },
+        "y": 90
+      },
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full2"
+        },
+        "x": 90,
+        "y": 90
+      }
+    ],
+    "inventory": [
+      {
+        "model": "cube_all",
+        "textures": {
+          "all": "vrt:blocks/tainted_dirt_full0"
+        }
+      }
+    ]
+  }
 }

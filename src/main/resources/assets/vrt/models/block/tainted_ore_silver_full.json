@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_silver_full",
-        "south": "vrt:blocks/tainted_ore_silver_full",
-        "east": "vrt:blocks/tainted_ore_silver_full",
-        "west": "vrt:blocks/tainted_ore_silver_full",
-        "up": "vrt:blocks/tainted_ore_silver_full",
-        "down": "vrt:blocks/tainted_ore_silver_full",
-        "particle": "vrt:blocks/tainted_ore_silver_full"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_silver_full",
+    "south": "vrt:blocks/tainted_ore_silver_full",
+    "east": "vrt:blocks/tainted_ore_silver_full",
+    "west": "vrt:blocks/tainted_ore_silver_full",
+    "up": "vrt:blocks/tainted_ore_silver_full",
+    "down": "vrt:blocks/tainted_ore_silver_full",
+    "particle": "vrt:blocks/tainted_ore_silver_full"
+  }
 }

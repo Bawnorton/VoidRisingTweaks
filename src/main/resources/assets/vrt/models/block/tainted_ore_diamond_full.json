@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_diamond_full",
-        "south": "vrt:blocks/tainted_ore_diamond_full",
-        "east": "vrt:blocks/tainted_ore_diamond_full",
-        "west": "vrt:blocks/tainted_ore_diamond_full",
-        "up": "vrt:blocks/tainted_ore_diamond_full",
-        "down": "vrt:blocks/tainted_ore_diamond_full",
-        "particle": "vrt:blocks/tainted_ore_diamond_full"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_diamond_full",
+    "south": "vrt:blocks/tainted_ore_diamond_full",
+    "east": "vrt:blocks/tainted_ore_diamond_full",
+    "west": "vrt:blocks/tainted_ore_diamond_full",
+    "up": "vrt:blocks/tainted_ore_diamond_full",
+    "down": "vrt:blocks/tainted_ore_diamond_full",
+    "particle": "vrt:blocks/tainted_ore_diamond_full"
+  }
 }

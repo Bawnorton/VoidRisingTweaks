@@ -22,6 +22,11 @@ public class VoidRisingTweaks {
     private static Logger logger;
 
     @EventHandler
+    public static void serverInit(FMLServerStartingEvent event) {
+        ServerProxy.serverInit(event);
+    }
+
+    @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
         logger = event.getModLog();
@@ -36,11 +41,6 @@ public class VoidRisingTweaks {
     @EventHandler
     public void postInit(FMLPostInitializationEvent postEvent) {
         proxy.postInit(postEvent);
-    }
-
-    @EventHandler
-    public static void serverInit(FMLServerStartingEvent event) {
-        ServerProxy.serverInit(event);
     }
 }
 

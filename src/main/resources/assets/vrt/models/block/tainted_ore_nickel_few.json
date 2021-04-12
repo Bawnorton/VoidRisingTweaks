@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_nickel_few",
-        "south": "vrt:blocks/tainted_ore_nickel_few",
-        "east": "vrt:blocks/tainted_ore_nickel_few",
-        "west": "vrt:blocks/tainted_ore_nickel_few",
-        "up": "vrt:blocks/tainted_ore_nickel_few",
-        "down": "vrt:blocks/tainted_ore_nickel_few",
-        "particle": "vrt:blocks/tainted_ore_nickel_few"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_nickel_few",
+    "south": "vrt:blocks/tainted_ore_nickel_few",
+    "east": "vrt:blocks/tainted_ore_nickel_few",
+    "west": "vrt:blocks/tainted_ore_nickel_few",
+    "up": "vrt:blocks/tainted_ore_nickel_few",
+    "down": "vrt:blocks/tainted_ore_nickel_few",
+    "particle": "vrt:blocks/tainted_ore_nickel_few"
+  }
 }

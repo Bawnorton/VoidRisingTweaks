@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_sapphire_most",
-        "south": "vrt:blocks/tainted_ore_sapphire_most",
-        "east": "vrt:blocks/tainted_ore_sapphire_most",
-        "west": "vrt:blocks/tainted_ore_sapphire_most",
-        "up": "vrt:blocks/tainted_ore_sapphire_most",
-        "down": "vrt:blocks/tainted_ore_sapphire_most",
-        "particle": "vrt:blocks/tainted_ore_sapphire_most"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_sapphire_most",
+    "south": "vrt:blocks/tainted_ore_sapphire_most",
+    "east": "vrt:blocks/tainted_ore_sapphire_most",
+    "west": "vrt:blocks/tainted_ore_sapphire_most",
+    "up": "vrt:blocks/tainted_ore_sapphire_most",
+    "down": "vrt:blocks/tainted_ore_sapphire_most",
+    "particle": "vrt:blocks/tainted_ore_sapphire_most"
+  }
 }

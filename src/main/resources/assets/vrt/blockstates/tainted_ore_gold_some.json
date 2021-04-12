@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_ore_gold_some"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_ore_gold_some"
     }
+  }
 }

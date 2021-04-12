@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_cobblestone_most"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_cobblestone_most"
     }
+  }
 }

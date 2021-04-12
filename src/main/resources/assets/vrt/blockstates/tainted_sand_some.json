@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_sand_some"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_sand_some"
     }
+  }
 }

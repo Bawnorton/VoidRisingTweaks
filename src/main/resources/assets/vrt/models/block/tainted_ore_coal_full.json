@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_coal_full",
-        "south": "vrt:blocks/tainted_ore_coal_full",
-        "east": "vrt:blocks/tainted_ore_coal_full",
-        "west": "vrt:blocks/tainted_ore_coal_full",
-        "up": "vrt:blocks/tainted_ore_coal_full",
-        "down": "vrt:blocks/tainted_ore_coal_full",
-        "particle": "vrt:blocks/tainted_ore_coal_full"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_coal_full",
+    "south": "vrt:blocks/tainted_ore_coal_full",
+    "east": "vrt:blocks/tainted_ore_coal_full",
+    "west": "vrt:blocks/tainted_ore_coal_full",
+    "up": "vrt:blocks/tainted_ore_coal_full",
+    "down": "vrt:blocks/tainted_ore_coal_full",
+    "particle": "vrt:blocks/tainted_ore_coal_full"
+  }
 }

@@ -1,11 +1,7 @@
 package com.bawnorton.vrt.handler;
 
-import net.minecraft.world.chunk.Chunk;
-
-import java.util.ArrayList;
-import java.util.List;
+import net.minecraft.util.math.BlockPos;
 
 public class ChunkHandler {
-    public static List<TaintBlock> blocks = new ArrayList<>();
-    public static List<Chunk> chunks = new ArrayList<>();
+    public static BlockInfoMap<BlockPos, BlockInfo> blocks = new BlockInfoMap<>();
 }

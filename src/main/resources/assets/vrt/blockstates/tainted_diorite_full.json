@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_diorite_full"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_diorite_full"
     }
+  }
 }

@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_stone_bricks_full"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_stone_bricks_full"
     }
+  }
 }

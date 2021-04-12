@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_thorium_some",
-        "south": "vrt:blocks/tainted_ore_thorium_some",
-        "east": "vrt:blocks/tainted_ore_thorium_some",
-        "west": "vrt:blocks/tainted_ore_thorium_some",
-        "up": "vrt:blocks/tainted_ore_thorium_some",
-        "down": "vrt:blocks/tainted_ore_thorium_some",
-        "particle": "vrt:blocks/tainted_ore_thorium_some"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_thorium_some",
+    "south": "vrt:blocks/tainted_ore_thorium_some",
+    "east": "vrt:blocks/tainted_ore_thorium_some",
+    "west": "vrt:blocks/tainted_ore_thorium_some",
+    "up": "vrt:blocks/tainted_ore_thorium_some",
+    "down": "vrt:blocks/tainted_ore_thorium_some",
+    "particle": "vrt:blocks/tainted_ore_thorium_some"
+  }
 }

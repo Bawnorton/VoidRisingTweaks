@@ -1,7 +1,7 @@
 package com.bawnorton.vrt.events;
 
+import com.bawnorton.vrt.handler.BlockInfo;
 import com.bawnorton.vrt.handler.ChunkHandler;
-import com.bawnorton.vrt.handler.TaintBlock;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
@@ -20,7 +20,7 @@ public class PlayerEvents {
         BlockPos pos = event.getBlockSnapshot().getPos();
         Chunk chunk = event.getWorld().getChunk(pos);
         if (BLOCKS.contains(block)) {
-            ChunkHandler.blocks.add(new TaintBlock(block, pos, chunk));
+            ChunkHandler.blocks.put(pos, new BlockInfo(block, pos, chunk));
         }
     }
 
@@ -28,9 +28,8 @@ public class PlayerEvents {
     public static void onBlockBreak(BlockEvent.BreakEvent event) {
         Block block = event.getState().getBlock();
         BlockPos pos = event.getPos();
-        Chunk chunk = event.getWorld().getChunk(pos);
         if (BLOCKS.contains(block)) {
-            ChunkHandler.blocks.remove(new TaintBlock(block, pos, chunk));
+            ChunkHandler.blocks.remove(pos);
         }
     }
 }

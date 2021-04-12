@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_granite_most"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_granite_most"
     }
+  }
 }

@@ -17,7 +17,7 @@ public abstract class MixinTaintFibre {
      */
     @Overwrite(remap = false)
     public void die(World world, BlockPos pos, IBlockState blockState) {
-        if(RadiationHelper.getRadiationSource(world.getChunk(pos)).getRadiationLevel() > 0.001) {
+        if (RadiationHelper.getRadiationSource(world.getChunk(pos)).getRadiationLevel() > 0.001) {
             world.setBlockToAir(pos);
         } else {
             TaintHelper.spreadFibres(world, pos);

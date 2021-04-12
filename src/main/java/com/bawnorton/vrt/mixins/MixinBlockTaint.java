@@ -2,7 +2,6 @@ package com.bawnorton.vrt.mixins;
 
 import nc.radiation.RadiationHelper;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +19,7 @@ public abstract class MixinBlockTaint {
      */
     @Overwrite(remap = false)
     public void die(World world, BlockPos pos, IBlockState state) {
-        if(RadiationHelper.getRadiationSource(world.getChunk(pos)).getRadiationLevel() > 0.001) {
+        if (RadiationHelper.getRadiationSource(world.getChunk(pos)).getRadiationLevel() > 0.001) {
             if (state.getBlock() == BlocksTC.taintCrust) {
                 world.setBlockState(pos, BlocksTC.fluxGoo.getDefaultState());
             } else if (state.getBlock() == BlocksTC.taintGeyser) {
@@ -28,8 +27,7 @@ public abstract class MixinBlockTaint {
             } else {
                 world.setBlockToAir(pos);
             }
-        }
-        else {
+        } else {
             TaintHelper.spreadFibres(world, pos);
         }
     }

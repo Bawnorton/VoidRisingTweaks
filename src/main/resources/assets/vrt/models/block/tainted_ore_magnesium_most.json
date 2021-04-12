@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_magnesium_most",
-        "south": "vrt:blocks/tainted_ore_magnesium_most",
-        "east": "vrt:blocks/tainted_ore_magnesium_most",
-        "west": "vrt:blocks/tainted_ore_magnesium_most",
-        "up": "vrt:blocks/tainted_ore_magnesium_most",
-        "down": "vrt:blocks/tainted_ore_magnesium_most",
-        "particle": "vrt:blocks/tainted_ore_magnesium_most"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_magnesium_most",
+    "south": "vrt:blocks/tainted_ore_magnesium_most",
+    "east": "vrt:blocks/tainted_ore_magnesium_most",
+    "west": "vrt:blocks/tainted_ore_magnesium_most",
+    "up": "vrt:blocks/tainted_ore_magnesium_most",
+    "down": "vrt:blocks/tainted_ore_magnesium_most",
+    "particle": "vrt:blocks/tainted_ore_magnesium_most"
+  }
 }

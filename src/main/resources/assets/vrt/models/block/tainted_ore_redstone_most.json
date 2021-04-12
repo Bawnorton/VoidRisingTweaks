@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_redstone_most",
-        "south": "vrt:blocks/tainted_ore_redstone_most",
-        "east": "vrt:blocks/tainted_ore_redstone_most",
-        "west": "vrt:blocks/tainted_ore_redstone_most",
-        "up": "vrt:blocks/tainted_ore_redstone_most",
-        "down": "vrt:blocks/tainted_ore_redstone_most",
-        "particle": "vrt:blocks/tainted_ore_redstone_most"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_redstone_most",
+    "south": "vrt:blocks/tainted_ore_redstone_most",
+    "east": "vrt:blocks/tainted_ore_redstone_most",
+    "west": "vrt:blocks/tainted_ore_redstone_most",
+    "up": "vrt:blocks/tainted_ore_redstone_most",
+    "down": "vrt:blocks/tainted_ore_redstone_most",
+    "particle": "vrt:blocks/tainted_ore_redstone_most"
+  }
 }

@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_ore_uranium_few"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_ore_uranium_few"
     }
+  }
 }

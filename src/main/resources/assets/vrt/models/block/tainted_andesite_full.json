@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_andesite_full",
-        "south": "vrt:blocks/tainted_andesite_full",
-        "east": "vrt:blocks/tainted_andesite_full",
-        "west": "vrt:blocks/tainted_andesite_full",
-        "up": "vrt:blocks/tainted_andesite_full",
-        "down": "vrt:blocks/tainted_andesite_full",
-        "particle": "vrt:blocks/tainted_andesite_full"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_andesite_full",
+    "south": "vrt:blocks/tainted_andesite_full",
+    "east": "vrt:blocks/tainted_andesite_full",
+    "west": "vrt:blocks/tainted_andesite_full",
+    "up": "vrt:blocks/tainted_andesite_full",
+    "down": "vrt:blocks/tainted_andesite_full",
+    "particle": "vrt:blocks/tainted_andesite_full"
+  }
 }

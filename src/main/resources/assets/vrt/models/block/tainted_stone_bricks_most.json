@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_stone_bricks_most",
-        "south": "vrt:blocks/tainted_stone_bricks_most",
-        "east": "vrt:blocks/tainted_stone_bricks_most",
-        "west": "vrt:blocks/tainted_stone_bricks_most",
-        "up": "vrt:blocks/tainted_stone_bricks_most",
-        "down": "vrt:blocks/tainted_stone_bricks_most",
-        "particle": "vrt:blocks/tainted_stone_bricks_most"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_stone_bricks_most",
+    "south": "vrt:blocks/tainted_stone_bricks_most",
+    "east": "vrt:blocks/tainted_stone_bricks_most",
+    "west": "vrt:blocks/tainted_stone_bricks_most",
+    "up": "vrt:blocks/tainted_stone_bricks_most",
+    "down": "vrt:blocks/tainted_stone_bricks_most",
+    "particle": "vrt:blocks/tainted_stone_bricks_most"
+  }
 }

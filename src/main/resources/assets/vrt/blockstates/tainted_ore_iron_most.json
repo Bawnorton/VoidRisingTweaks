@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "normal": {
-            "model": "vrt:tainted_ore_iron_most"
-        }
+  "variants": {
+    "normal": {
+      "model": "vrt:tainted_ore_iron_most"
     }
+  }
 }

@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_boron_most",
-        "south": "vrt:blocks/tainted_ore_boron_most",
-        "east": "vrt:blocks/tainted_ore_boron_most",
-        "west": "vrt:blocks/tainted_ore_boron_most",
-        "up": "vrt:blocks/tainted_ore_boron_most",
-        "down": "vrt:blocks/tainted_ore_boron_most",
-        "particle": "vrt:blocks/tainted_ore_boron_most"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_boron_most",
+    "south": "vrt:blocks/tainted_ore_boron_most",
+    "east": "vrt:blocks/tainted_ore_boron_most",
+    "west": "vrt:blocks/tainted_ore_boron_most",
+    "up": "vrt:blocks/tainted_ore_boron_most",
+    "down": "vrt:blocks/tainted_ore_boron_most",
+    "particle": "vrt:blocks/tainted_ore_boron_most"
+  }
 }

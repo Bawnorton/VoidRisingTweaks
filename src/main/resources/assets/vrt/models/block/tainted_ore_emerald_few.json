@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_emerald_few",
-        "south": "vrt:blocks/tainted_ore_emerald_few",
-        "east": "vrt:blocks/tainted_ore_emerald_few",
-        "west": "vrt:blocks/tainted_ore_emerald_few",
-        "up": "vrt:blocks/tainted_ore_emerald_few",
-        "down": "vrt:blocks/tainted_ore_emerald_few",
-        "particle": "vrt:blocks/tainted_ore_emerald_few"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_emerald_few",
+    "south": "vrt:blocks/tainted_ore_emerald_few",
+    "east": "vrt:blocks/tainted_ore_emerald_few",
+    "west": "vrt:blocks/tainted_ore_emerald_few",
+    "up": "vrt:blocks/tainted_ore_emerald_few",
+    "down": "vrt:blocks/tainted_ore_emerald_few",
+    "particle": "vrt:blocks/tainted_ore_emerald_few"
+  }
 }

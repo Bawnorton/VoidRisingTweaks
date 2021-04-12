@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_ore_charged_certus_most",
-        "south": "vrt:blocks/tainted_ore_charged_certus_most",
-        "east": "vrt:blocks/tainted_ore_charged_certus_most",
-        "west": "vrt:blocks/tainted_ore_charged_certus_most",
-        "up": "vrt:blocks/tainted_ore_charged_certus_most",
-        "down": "vrt:blocks/tainted_ore_charged_certus_most",
-        "particle": "vrt:blocks/tainted_ore_charged_certus_most"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_ore_charged_certus_most",
+    "south": "vrt:blocks/tainted_ore_charged_certus_most",
+    "east": "vrt:blocks/tainted_ore_charged_certus_most",
+    "west": "vrt:blocks/tainted_ore_charged_certus_most",
+    "up": "vrt:blocks/tainted_ore_charged_certus_most",
+    "down": "vrt:blocks/tainted_ore_charged_certus_most",
+    "particle": "vrt:blocks/tainted_ore_charged_certus_most"
+  }
 }

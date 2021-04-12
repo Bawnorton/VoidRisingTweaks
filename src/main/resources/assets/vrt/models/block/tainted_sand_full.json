@@ -1,12 +1,12 @@
 {
-    "parent": "block/cube",
-    "textures": {
-        "north": "vrt:blocks/tainted_sand_full",
-        "south": "vrt:blocks/tainted_sand_full",
-        "east": "vrt:blocks/tainted_sand_full",
-        "west": "vrt:blocks/tainted_sand_full",
-        "up": "vrt:blocks/tainted_sand_full",
-        "down": "vrt:blocks/tainted_sand_full",
-        "particle": "vrt:blocks/tainted_sand_full"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "north": "vrt:blocks/tainted_sand_full",
+    "south": "vrt:blocks/tainted_sand_full",
+    "east": "vrt:blocks/tainted_sand_full",
+    "west": "vrt:blocks/tainted_sand_full",
+    "up": "vrt:blocks/tainted_sand_full",
+    "down": "vrt:blocks/tainted_sand_full",
+    "particle": "vrt:blocks/tainted_sand_full"
+  }
 }
