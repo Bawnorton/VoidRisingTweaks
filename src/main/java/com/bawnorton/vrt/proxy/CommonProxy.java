@@ -1,6 +1,6 @@
 package com.bawnorton.vrt.proxy;
 
-import com.bawnorton.vrt.addons.recipies.VRTSmeltingRecipies;
+import com.bawnorton.vrt.addons.recipies.VRTSmeltingRecipes;
 import com.bawnorton.vrt.events.ChunkEvents;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,10 +13,11 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent event) {
-        VRTSmeltingRecipies.init();
+        VRTSmeltingRecipes.init();
     }
 
     public void preInit(FMLPreInitializationEvent event) {
+
     }
 
     public void postInit(FMLPostInitializationEvent postEvent) {

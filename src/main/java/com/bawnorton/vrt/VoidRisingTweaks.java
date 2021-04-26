@@ -1,6 +1,8 @@
 package com.bawnorton.vrt;
 
 import com.bawnorton.vrt.addons.VRTCreativeTab;
+import com.bawnorton.vrt.addons.entities.EntityInit;
+import com.bawnorton.vrt.handler.RenderHandler;
 import com.bawnorton.vrt.proxy.CommonProxy;
 import com.bawnorton.vrt.proxy.ServerProxy;
 import net.minecraftforge.fml.common.Mod;
@@ -15,7 +17,7 @@ import org.apache.logging.log4j.Logger;
 @Mod(modid = Global.MOD_ID, name = Global.MOD_NAME, version = Global.VERSION, dependencies = "after:nuclearcraft;after:techreborn")
 public class VoidRisingTweaks {
     public static final VRTCreativeTab TABVRT = new VRTCreativeTab("vrtTab");
-    @SidedProxy(clientSide = Global.BR_CLIENT_PROXY, serverSide = Global.BR_SERVER_PROXY)
+    @SidedProxy(clientSide = Global.VRT_PROXY_CLIENT_PROXY, serverSide = Global.VRT_PROXY_COMMON_PROXY)
     public static CommonProxy proxy;
     @Mod.Instance("vrt")
     public static VoidRisingTweaks instance;
@@ -29,6 +31,8 @@ public class VoidRisingTweaks {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+        EntityInit.registerEntites();
+        RenderHandler.registerEntityRenders();
         logger = event.getModLog();
     }
 

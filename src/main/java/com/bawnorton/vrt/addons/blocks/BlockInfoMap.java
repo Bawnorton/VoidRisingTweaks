@@ -1,4 +1,4 @@
-package com.bawnorton.vrt.handler;
+package com.bawnorton.vrt.addons.blocks;
 
 import net.minecraft.world.chunk.Chunk;
 

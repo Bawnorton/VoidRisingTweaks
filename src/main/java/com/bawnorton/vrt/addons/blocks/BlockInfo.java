@@ -1,8 +1,6 @@
-package com.bawnorton.vrt.handler;
+package com.bawnorton.vrt.addons.blocks;
 
-import com.bawnorton.vrt.addons.blocks.VRTTaintBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
 
@@ -28,11 +26,11 @@ public class BlockInfo {
 
     public boolean hasHigher() {
         setNeighbours();
-        for(BlockPos pos: neighbours) {
-        	Block blk = chunk.getBlockState(pos).getBlock(); 
-        	if(!(blk instanceof VRTTaintBlock)) continue;
+        for (BlockPos pos : neighbours) {
+            Block blk = chunk.getBlockState(pos).getBlock();
+            if (!(blk instanceof VRTTaintBlock)) continue;
             VRTTaintBlock block = (VRTTaintBlock) blk;
-            if(block.getStage() < ((VRTTaintBlock)this.block).getStage()) {
+            if (block.getStage() < ((VRTTaintBlock) this.block).getStage()) {
                 return true;
             }
         }
@@ -55,7 +53,6 @@ public class BlockInfo {
         return "TaintBlock{" +
                 "pos=" + pos +
                 ", block=" + block +
-                ", chunk=" + chunk +
                 '}';
     }
 }

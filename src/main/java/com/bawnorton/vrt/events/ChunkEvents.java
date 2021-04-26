@@ -1,8 +1,8 @@
 package com.bawnorton.vrt.events;
 
+import com.bawnorton.vrt.Global;
+import com.bawnorton.vrt.addons.blocks.BlockInfo;
 import com.bawnorton.vrt.addons.blocks.VRTTaintBlock;
-import com.bawnorton.vrt.handler.BlockInfo;
-import com.bawnorton.vrt.handler.ChunkHandler;
 import nc.radiation.RadiationHelper;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
@@ -28,10 +28,9 @@ public class ChunkEvents {
 
     @SubscribeEvent
     public void updateTaintBlocks(TickEvent.WorldTickEvent event) {
-        System.out.println(ChunkHandler.blocks.size());
         if (r.nextInt(tickSpeed + 1) == tickSpeed) {
-            if (ChunkHandler.blocks.size() == 0) return;
-            BlockInfo block = new ArrayList<>(ChunkHandler.blocks.values()).get(r.nextInt(ChunkHandler.blocks.size()));
+            if (Global.blocks.size() == 0) return;
+            BlockInfo block = new ArrayList<>(Global.blocks.values()).get(r.nextInt(Global.blocks.size()));
             VRTTaintBlock taintBlock = (VRTTaintBlock) block.block;
             taintBlock.updateVrtTick(block.chunk.getWorld(), block.pos);
         }
@@ -39,14 +38,14 @@ public class ChunkEvents {
         ChunkProviderServer chunkProvider = world.getChunkProvider();
         List<Chunk> chunkList = new ArrayList<>(chunkProvider.getLoadedChunks());
         for (Chunk chunk : chunkList) {
-            if (!ChunkHandler.blocks.containsChunk(chunk) && RadiationHelper.getRadiationSource(chunk).getRadiationLevel() > 0.001) {
+            if (!Global.blocks.containsChunk(chunk) && RadiationHelper.getRadiationSource(chunk).getRadiationLevel() > 0.001) {
                 int chunkX = chunk.x << 4;
                 int chunkZ = chunk.z << 4;
                 for (int y = 256; y > 1; y--) {
                     BlockPos pos = new BlockPos(8 + chunkX, y, 8 + chunkZ);
                     Block block = world.getBlockState(pos).getBlock();
                     if (BLOCKS.contains(block)) {
-                        ChunkHandler.blocks.put(pos, new BlockInfo(block, pos, chunk));
+                        Global.blocks.put(pos, new BlockInfo(block, pos, chunk));
                     }
                 }
             }
