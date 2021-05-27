@@ -22,7 +22,7 @@ import static com.bawnorton.vrt.addons.blocks.VRTBlockInit.BLOCKS;
 @Mod.EventBusSubscriber
 public class PlayerEvents {
 
-    private static Random r = new Random(System.currentTimeMillis());
+    private static final Random r = new Random(System.currentTimeMillis());
 
     @SubscribeEvent
     public static void onBlockPlace(BlockEvent.PlaceEvent event) {

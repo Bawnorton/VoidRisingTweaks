@@ -28,7 +28,7 @@ import static thaumcraft.common.blocks.world.taint.TaintHelper.isAtTaintSeedEdge
 @Mixin(TaintHelper.class)
 public abstract class MixinTaintHelper {
 
-    private static Random r = new Random();
+    private static final Random r = new Random();
 
     /**
      * @author Bawnorton

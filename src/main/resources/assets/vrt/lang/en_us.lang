@@ -1,6 +1,8 @@
 itemGroup.vrtTab=Void Rising Tweaks
 item.charred_taint.name=Charred Taint
 
+entity.crawler.name=Crawler
+
 tile.tainted_ore_sapphire_some.name=Partially Tainted Sapphire Ore
 tile.tainted_ore_sapphire_full.name=Tainted Sapphire Ore
 tile.tainted_ore_sapphire_few.name=Slightly Tainted Sapphire Ore
