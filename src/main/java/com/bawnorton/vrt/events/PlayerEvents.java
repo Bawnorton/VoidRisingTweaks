@@ -25,7 +25,7 @@ public class PlayerEvents {
     private static final Random r = new Random(System.currentTimeMillis());
 
     @SubscribeEvent
-    public static void onBlockPlace(BlockEvent.PlaceEvent event) {
+    public static void onBlockPlace(BlockEvent.EntityPlaceEvent event) {
         Block block = event.getPlacedBlock().getBlock();
         BlockPos pos = event.getBlockSnapshot().getPos();
         Chunk chunk = event.getWorld().getChunk(pos);
@@ -66,6 +66,6 @@ public class PlayerEvents {
         int xOffset = r.nextInt(6) - 3; 
         int zOffset = r.nextInt(6) - 3; 
         crawler.setLocationAndAngles(rift.posX + xOffset, rift.posY + 1, rift.posZ + zOffset, 0.0F, 0.0F);
-        world.spawnEntity(crawler);
+        if(crawler.getCanSpawnHere()) world.spawnEntity(crawler);
     }
 }

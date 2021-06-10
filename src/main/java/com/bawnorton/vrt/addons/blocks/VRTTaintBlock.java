@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package com.bawnorton.vrt.addons.blocks;
 
 import com.bawnorton.vrt.Global;
@@ -10,6 +5,7 @@ import com.bawnorton.vrt.VoidRisingTweaks;
 import com.bawnorton.vrt.addons.VRTHasModel;
 import nc.radiation.RadiationHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -26,6 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.jetbrains.annotations.Nullable;
 import thaumcraft.api.ThaumcraftMaterials;
 import thaumcraft.api.potions.PotionFluxTaint;
 import thaumcraft.common.blocks.world.taint.TaintHelper;
@@ -50,6 +47,11 @@ public class VRTTaintBlock extends VRTBlockTC implements VRTHasModel {
         this.setTickRandomly(true);
         BLOCKS.add(this);
         ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+    }
+
+    @Override
+    public SoundType getSoundType() {
+        return SoundsTC.GORE;
     }
 
     @Override
@@ -137,7 +139,7 @@ public class VRTTaintBlock extends VRTBlockTC implements VRTHasModel {
                         Block toReplace = TAINTED_BLOCKS.get(taintBlock.getName()).get(taintBlock.getStage() + 1);
                         BlockInfo blockInfo = new BlockInfo(toReplace, neighbourPos, chunk);
                         if (!blockInfo.hasHigher()) continue;
-                        world.setBlockState(pos, toReplace.getDefaultState());
+                        world.setBlockState(neighbourPos, toReplace.getDefaultState());
                         Global.blocks.put(neighbourPos, blockInfo);
                     } else {
                         Block toReplace = reverseDefault.get(world.getBlockState(neighbourPos));

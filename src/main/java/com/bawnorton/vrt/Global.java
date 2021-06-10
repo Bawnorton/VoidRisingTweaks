@@ -21,4 +21,5 @@ public class Global {
     public static List<EntityFluxRift> rifts = new ArrayList<>();
 
     public static final int ENTITY_CRAWLER = 401;
+    public static final int ENTITY_BOSS = 501;
 }

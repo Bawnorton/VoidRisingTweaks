@@ -2,15 +2,18 @@ package com.bawnorton.vrt.addons.entities;
 
 import com.bawnorton.vrt.Global;
 import com.bawnorton.vrt.VoidRisingTweaks;
+import com.bawnorton.vrt.addons.entities.bosses.BossAPI;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
+import static com.bawnorton.vrt.Global.ENTITY_BOSS;
 import static com.bawnorton.vrt.Global.ENTITY_CRAWLER;
 
 public class EntityInit {
     public static void registerEntites() {
         registerEntity("crawler", EntityCrawler.class, ENTITY_CRAWLER, 50, 16777215, 0);
+        registerEntity("boss", BossAPI.class, ENTITY_BOSS, 100, 8388673, 8430913);
     }
 
     private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int colour1, int colour2) {

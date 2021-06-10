@@ -28,8 +28,9 @@ public class ChunkEvents {
 
     @SubscribeEvent
     public void updateTaintBlocks(TickEvent.WorldTickEvent event) {
-        if (r.nextInt(tickSpeed + 1) == tickSpeed) {
-            if (Global.blocks.size() == 0) return;
+        outer: if (r.nextInt(tickSpeed + 1) == tickSpeed) {
+            if (Global.blocks.size() == 0) break outer;
+            System.out.println(Global.blocks.size());
             BlockInfo block = new ArrayList<>(Global.blocks.values()).get(r.nextInt(Global.blocks.size()));
             VRTTaintBlock taintBlock = (VRTTaintBlock) block.block;
             taintBlock.updateVrtTick(block.chunk.getWorld(), block.pos);
