@@ -6,17 +6,24 @@ import net.minecraft.world.chunk.Chunk;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BlockInfo {
     private final List<BlockPos> neighbours = new ArrayList<>();
     public BlockPos pos;
     public Block block;
     public Chunk chunk;
+    private boolean defined = false;
+    private Random r = new Random(System.currentTimeMillis());
 
     public BlockInfo(Block block, BlockPos pos, Chunk chunk) {
         this.pos = pos;
         this.block = block;
         this.chunk = chunk;
+    }
+
+    public BlockPos getNeighbour() {
+        return neighbours.get(r.nextInt(neighbours.size()));
     }
 
     public List<BlockPos> getNeighbours() {
@@ -38,6 +45,7 @@ public class BlockInfo {
     }
 
     private void setNeighbours() {
+        if(defined) return;
         for (int x = -1; x < 2; x++) {
             for (int y = -1; y < 2; y++) {
                 for (int z = -1; z < 2; z++) {
@@ -46,6 +54,7 @@ public class BlockInfo {
                 }
             }
         }
+        defined = true;
     }
 
     @Override

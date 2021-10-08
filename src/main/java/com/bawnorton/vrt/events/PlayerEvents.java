@@ -45,6 +45,7 @@ public class PlayerEvents {
 
     public static int spawnRate = 200;
     private static int rate = 0;
+    public static float scale = 1F;
 
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
@@ -62,6 +63,7 @@ public class PlayerEvents {
             rifts.remove(rift);
             return;
         }
+        scale = r.nextFloat()/4 + 0.5F;
         EntityCrawler crawler = new EntityCrawler(world);
         int xOffset = r.nextInt(6) - 3; 
         int zOffset = r.nextInt(6) - 3; 

@@ -30,7 +30,6 @@ public class ChunkEvents {
     public void updateTaintBlocks(TickEvent.WorldTickEvent event) {
         outer: if (r.nextInt(tickSpeed + 1) == tickSpeed) {
             if (Global.blocks.size() == 0) break outer;
-            System.out.println(Global.blocks.size());
             BlockInfo block = new ArrayList<>(Global.blocks.values()).get(r.nextInt(Global.blocks.size()));
             VRTTaintBlock taintBlock = (VRTTaintBlock) block.block;
             taintBlock.updateVrtTick(block.chunk.getWorld(), block.pos);

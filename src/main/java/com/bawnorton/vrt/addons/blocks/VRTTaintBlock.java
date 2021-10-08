@@ -123,44 +123,41 @@ public class VRTTaintBlock extends VRTBlockTC implements VRTHasModel {
                 }
             }
             Chunk chunk = world.getChunk(pos);
-            List<BlockPos> neighbours = Global.blocks.get(pos).getNeighbours();
-            for (BlockPos neighbourPos : neighbours) {
-                Block block = world.getBlockState(neighbourPos).getBlock();
-                if (block.getDefaultState().getMaterial().isLiquid() || block.isAir(block.getDefaultState(), world, neighbourPos))
-                    continue;
-                if (grow) {
-                    TaintHelper.spreadFibres(world, neighbourPos);
-                    if (block instanceof VRTTaintBlock) {
-                        VRTTaintBlock taintBlock = (VRTTaintBlock) block;
-                        if (taintBlock.getStage() == 3) {
-                            Global.blocks.remove(neighbourPos);
-                            continue;
-                        }
-                        Block toReplace = TAINTED_BLOCKS.get(taintBlock.getName()).get(taintBlock.getStage() + 1);
-                        BlockInfo blockInfo = new BlockInfo(toReplace, neighbourPos, chunk);
-                        if (!blockInfo.hasHigher()) continue;
-                        world.setBlockState(neighbourPos, toReplace.getDefaultState());
-                        Global.blocks.put(neighbourPos, blockInfo);
-                    } else {
-                        Block toReplace = reverseDefault.get(world.getBlockState(neighbourPos));
-                        if (toReplace == null) continue;
-                        world.setBlockState(neighbourPos, toReplace.getDefaultState());
-                        Global.blocks.put(neighbourPos, new BlockInfo(toReplace, neighbourPos, chunk));
-                    }
-                } else {
-                    if (!(block instanceof VRTTaintBlock)) continue;
+            BlockPos neighbourBlock = Global.blocks.get(pos).getNeighbour();
+            Block block = world.getBlockState(neighbourBlock).getBlock();
+            if (block.getDefaultState().getMaterial().isLiquid() || block.isAir(block.getDefaultState(), world, neighbourBlock)) return;
+            if (grow) {
+                TaintHelper.spreadFibres(world, neighbourBlock);
+                if (block instanceof VRTTaintBlock) {
                     VRTTaintBlock taintBlock = (VRTTaintBlock) block;
-                    if (taintBlock.getStage() == 0) {
-                        IBlockState state = defaultBlocks.get(taintBlock);
-                        world.setBlockState(neighbourPos, state);
-                        Global.blocks.remove(neighbourPos);
-                        continue;
+                    if (taintBlock.getStage() == 3) {
+                        Global.blocks.remove(neighbourBlock);
+                        return;
                     }
-                    Block toReplace = TAINTED_BLOCKS.get(taintBlock.getName()).get(taintBlock.getStage() - 1);
-                    if (toReplace == null) continue;
-                    world.setBlockState(neighbourPos, toReplace.getDefaultState());
-                    Global.blocks.put(neighbourPos, new BlockInfo(block, neighbourPos, chunk));
+                    Block toReplace = TAINTED_BLOCKS.get(taintBlock.getName()).get(taintBlock.getStage() + 1);
+                    BlockInfo blockInfo = new BlockInfo(toReplace, neighbourBlock, chunk);
+                    if (!blockInfo.hasHigher()) return;
+                    world.setBlockState(neighbourBlock, toReplace.getDefaultState());
+                    Global.blocks.put(neighbourBlock, blockInfo);
+                } else {
+                    Block toReplace = reverseDefault.get(world.getBlockState(neighbourBlock));
+                    if (toReplace == null) return;
+                    world.setBlockState(neighbourBlock, toReplace.getDefaultState());
+                    Global.blocks.put(neighbourBlock, new BlockInfo(toReplace, neighbourBlock, chunk));
                 }
+            } else {
+                if (!(block instanceof VRTTaintBlock)) return;
+                VRTTaintBlock taintBlock = (VRTTaintBlock) block;
+                if (taintBlock.getStage() == 0) {
+                    IBlockState state = defaultBlocks.get(taintBlock);
+                    world.setBlockState(neighbourBlock, state);
+                    Global.blocks.remove(neighbourBlock);
+                    return;
+                }
+                Block toReplace = TAINTED_BLOCKS.get(taintBlock.getName()).get(taintBlock.getStage() - 1);
+                if (toReplace == null) return;
+                world.setBlockState(neighbourBlock, toReplace.getDefaultState());
+                Global.blocks.put(neighbourBlock, new BlockInfo(block, neighbourBlock, chunk));
             }
             if (toRemove) {
                 Global.blocks.remove(pos);

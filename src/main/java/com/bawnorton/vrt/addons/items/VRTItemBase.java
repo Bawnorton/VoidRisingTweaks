@@ -9,7 +9,6 @@ public class VRTItemBase extends Item implements VRTHasModel {
         setTranslationKey(name);
         setRegistryName(name);
         setCreativeTab(VoidRisingTweaks.TABVRT);
-
         VRTItemInit.ITEMS.add(this);
     }
 
@@ -17,5 +16,4 @@ public class VRTItemBase extends Item implements VRTHasModel {
     public void registerModels() {
         VoidRisingTweaks.proxy.registerItemRenderer(this, 0, "inventory");
     }
-
 }

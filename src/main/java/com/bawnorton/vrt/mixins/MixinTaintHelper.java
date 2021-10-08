@@ -53,7 +53,6 @@ public abstract class MixinTaintHelper {
                 return;
             }
 
-            EntityTaintSeed e;
             if (bs.getBlock().isLeaves(bs, world, t)) {
                 EnumFacing face;
                 if ((double) world.rand.nextFloat() < 0.6D && (face = BlockUtils.getFaceBlockTouching(world, t, BlocksTC.taintLog)) != null) {
@@ -75,15 +74,6 @@ public abstract class MixinTaintHelper {
                     AuraHelper.drainFlux(world, t, 0.01F, false);
                 }
                 AuraHelper.drainFlux(world, t, 0.01F, false);
-            }
-
-            if ((bm == ThaumcraftMaterials.MATERIAL_TAINT) && world.isAirBlock(t.up()) && AuraHelper.getFlux(world, t) >= 5.0F && (double) world.rand.nextFloat() < (double) (ModConfig.CONFIG_WORLD.taintSpreadRate / 100.0F) * 0.33D && isAtTaintSeedEdge(world, t)) {
-                e = new EntityTaintSeed(world);
-                e.setLocationAndAngles(((float) t.getX() + 0.5F), t.up().getY(), ((float) t.getZ() + 0.5F), (float) world.rand.nextInt(360), 0.0F);
-                if (e.getCanSpawnHere()) {
-                    AuraHelper.drainFlux(world, t, 5.0F, false);
-                    world.spawnEntity(e);
-                }
             }
         }
     }

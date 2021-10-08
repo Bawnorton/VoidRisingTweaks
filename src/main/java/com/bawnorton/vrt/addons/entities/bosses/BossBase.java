@@ -1,15 +1,14 @@
 package com.bawnorton.vrt.addons.entities.bosses;
 
+import com.bawnorton.vrt.addons.items.BossSummonItem;
+import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.boss.EntityWither;
-import net.minecraft.entity.monster.EntityGiantZombie;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextComponentString;
@@ -17,36 +16,40 @@ import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
 
-public class BossAPI extends EntityMob {
+public class BossBase extends EntityMob {
 
     private final BossInfoServer bossInfo = (BossInfoServer)(new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.PROGRESS)).setDarkenSky(true);
-    private static final DataParameter<Integer> INVULNERABILITY_TIME = EntityDataManager.createKey(BossAPI.class, DataSerializers.VARINT);
-    public float scaleFactor;
+    private static final Predicate<Entity> SELF;
+    private final float scale;
 
-    public BossAPI(World worldIn) {
+    public BossBase(World worldIn) {
         super(worldIn);
-        this.scaleFactor = 4F;
-        setSize(0.6F * scaleFactor, 1.95F * scaleFactor);
-        this.bossInfo.setName(new TextComponentString("Test Boss"));
+        this.scale = BossSummonItem.scale;
+        this.setSize(0.7F * scale,2F * scale);
+        this.bossInfo.setName(new TextComponentString( "Boss"));
+    }
+
+    public float getScale() {
+        return scale;
     }
 
     protected void entityInit() {
         super.entityInit();
-        this.dataManager.register(INVULNERABILITY_TIME, 0);
     }
 
-    public int getInvulTime() {
-        return this.dataManager.get(INVULNERABILITY_TIME);
+    protected void initEntityAI() {
+        this.tasks.addTask(1, new EntityAISwimming(this));
+        this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, true));
+        this.tasks.addTask(5, new EntityAIWanderAvoidWater(this, 1.0D));
+        this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+        this.tasks.addTask(7, new EntityAILookIdle(this));
+        this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityLiving.class, 10, false, false, SELF));
     }
-    public void setInvulTime(int time) {
-        this.dataManager.set(INVULNERABILITY_TIME, time);
-    }
+
 
     @Override
     protected void updateAITasks() {
-        if(this.getInvulTime() > 0) {
-            this.setInvulTime(this.getInvulTime() - 1);
-        }
         super.updateAITasks();
         this.bossInfo.setPercent(this.getHealth() / this.getMaxHealth());
     }
@@ -89,5 +92,9 @@ public class BossAPI extends EntityMob {
     @Override
     public boolean isNonBoss() {
         return false;
+    }
+
+    static {
+        SELF = input ->  !(input instanceof BossBase);
     }
 }

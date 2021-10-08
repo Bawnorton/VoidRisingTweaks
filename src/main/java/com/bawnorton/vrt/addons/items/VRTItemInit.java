@@ -165,6 +165,7 @@ public class VRTItemInit {
     // Items
     //
     public static final Item CHARRED_TAINT = new VRTItemBase("charred_taint");
+    public static final Item BOSS_SUMMON_ITEM = new BossSummonItem("boss_summon");
 
     public static final Hashtable<String, List<Item>> TAINTED_ITEMS = new Hashtable<String, List<Item>>() {{
         put("tainted_andesite", Arrays.asList(SLIGHTLY_TAINTED_ANDESITE, PARTIALLY_TAINTED_ANDESITE, MOSTLY_TAINTED_ANDESITE, TAINTED_ANDESITE));
